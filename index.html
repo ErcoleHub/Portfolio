@@ -992,6 +992,7 @@
 
     /* ─── PHONE ─── */
     @media (max-width: 640px) {
+      /* Hero: stop the absolute-positioned crash, stack it as a flex column */
       .hero {
         height: auto;
         min-height: 100vh;
@@ -1035,7 +1036,10 @@
         display: block;
       }
 
+      /* Tighter section padding */
       section { padding: 4rem 1.25rem; }
+
+      /* Section headlines shrink so they don't break out */
       .section-headline { font-size: clamp(2rem, 9vw, 3rem); }
     }
   </style>
@@ -1369,10 +1373,6 @@
             <div class="contact-pair-label">Available for</div>
             <div class="contact-pair-value">Select Roles &amp; Projects</div>
           </div>
-          <div>
-            <div class="contact-pair-label">Currently at</div>
-            <div class="contact-pair-value">Gr0 Agency</div>
-          </div>
         </div>
       </div>
       <div>
@@ -1425,7 +1425,7 @@
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/justinercole/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#home">GitHub</a>
-      <a href="/cdn-cgi/l/email-protection#0f457a7c7b6661214a7d6c60636a4f68626e6663216c6062">Email</a>
+      <a href="/cdn-cgi/l/email-protection#f3b98680879a9dddb681909c9f96b3949e929a9fdd909c9e">Email</a>
     </div>
   </footer>
 
