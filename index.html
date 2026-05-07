@@ -964,7 +964,7 @@
     body:has(a:hover) #cursor-ring,
     body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: rgba(255,106,0,0.8); }
 
-    /* ─── MOBILE ─── */
+    /* ─── TABLET ─── */
     @media (max-width: 900px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
@@ -988,6 +988,41 @@
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    /* ─── PHONE ─── */
+    @media (max-width: 640px) {
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 6rem 1.5rem 3rem;
+      }
+      .hero-content,
+      .hero-stats {
+        position: static;
+        left: auto; right: auto; bottom: auto;
+        max-width: 100%;
+      }
+      .hero-headline { font-size: clamp(3rem, 13vw, 4.5rem); }
+      .hero-body { font-size: 0.9rem; max-width: none; }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 0.5px solid var(--border);
+      }
+      .hero-stat { text-align: left; }
+      .hero-stat-num { font-size: 1.6rem; }
+      .hero-stat-label { font-size: 0.55rem; }
+
+      section { padding: 4rem 1.25rem; }
+      .section-headline { font-size: clamp(2rem, 9vw, 3rem); }
     }
   </style>
   <template id="__bundler_thumbnail" data-bg-color="#0a0a0a">
@@ -1376,7 +1411,7 @@
     <div class="footer-links">
       <a href="#">LinkedIn</a>
       <a href="#">Instagram</a>
-      <a href="/cdn-cgi/l/email-protection#d9b1bcb5b5b699b3acaaadb0b7bcabbab6b5bcf7bab6b4">Email</a>
+      <a href="/cdn-cgi/l/email-protection#94fcf1f8f8fbd4fee1e7e0fdfaf1e6f7fbf8f1baf7fbf9">Email</a>
     </div>
   </footer>
 
