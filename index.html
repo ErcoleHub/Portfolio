@@ -394,7 +394,7 @@
     }
 
     .work-card:nth-child(2n) { border-right: none; }
-    .work-card:nth-child(n+3) { border-bottom: none; }
+    .work-card:nth-child(n+1) { border-bottom: none; }
     .work-card:hover { background: var(--card-hover); }
 
     .work-thumb {
@@ -465,6 +465,85 @@
     }
 
     .work-card:hover .work-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ─── DEMO CARDS ─── */
+    .flow-thumb {
+      height: 260px;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+      gap: 1.25rem;
+    }
+    .work-card:hover .flow-thumb { transform: scale(1.02); }
+    .flow-badge {
+      font-family: var(--inter);
+      font-size: 0.52rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      opacity: 0.55;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .flow-badge::before, .flow-badge::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 0.5px;
+      background: var(--cyan);
+      opacity: 0.5;
+    }
+    .flow-nodes {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+    .flow-node {
+      font-family: var(--inter);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border: 0.5px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
+    }
+    .flow-arr {
+      color: var(--cyan);
+      font-size: 0.7rem;
+      opacity: 0.45;
+    }
+    .work-info--demo {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .demo-btn {
+      display: inline-block;
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 0.55rem 1.1rem;
+      text-decoration: none;
+      margin-top: 0.75rem;
+      transition: background 0.2s;
+    }
+    .demo-btn:hover { background: var(--cyan); }
 
     /* ─── SYSTEMS ─── */
     #systems {
@@ -1222,48 +1301,48 @@
       <a href="#" class="view-all">View All Work →</a>
     </div>
     <div class="work-grid">
-      <div class="work-card">
-        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
-        <div class="work-info">
-          <div class="work-meta">
-            <div class="work-title">Supplement Brand Launch</div>
-            <div class="work-result">3.2x ROAS lift in 6 weeks</div>
-            <div class="work-category">Performance Creative · Health DTC</div>
+      <div class="work-card" style="cursor:default;">
+        <div class="flow-thumb">
+          <div class="flow-badge">Live System</div>
+          <div class="flow-nodes">
+            <span class="flow-node">Typeform</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">n8n</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Airtable</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Workspace</span>
           </div>
-          <span class="work-arrow">↗</span>
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">Brand Deal Pipeline</div>
+            <div class="work-result">Inbound to proposal — automated end to end</div>
+            <div class="work-category">Typeform · n8n · Airtable · Google Workspace</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
+          </div>
         </div>
       </div>
-      <div class="work-card">
-        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
-        <div class="work-info">
-          <div class="work-meta">
-            <div class="work-title">Primetime Series Production</div>
-            <div class="work-result">Emmy Award-winning</div>
-            <div class="work-category">Network Television</div>
+      <div class="work-card" style="cursor:default;">
+        <div class="flow-thumb">
+          <div class="flow-badge">Live System</div>
+          <div class="flow-nodes">
+            <span class="flow-node">Meta Ads</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">n8n</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Claude AI</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Creative</span>
           </div>
-          <span class="work-arrow">↗</span>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
-        <div class="work-info">
+        <div class="work-info work-info--demo">
           <div class="work-meta">
-            <div class="work-title">DTC Creative System Build</div>
-            <div class="work-result">28% CPA reduction</div>
-            <div class="work-category">Full-Funnel Creative</div>
-          </div>
-          <span class="work-arrow">↗</span>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
-        <div class="work-info">
-          <div class="work-meta">
-            <div class="work-title">Ad Cloning Automation System</div>
+            <div class="work-title">Ad Cloning &amp; Generation Pipeline</div>
             <div class="work-result">10x creative output velocity</div>
-            <div class="work-category">Systems · n8n</div>
+            <div class="work-category">Meta Ads · n8n · Claude AI · Google Drive</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
           </div>
-          <span class="work-arrow">↗</span>
         </div>
       </div>
     </div>
