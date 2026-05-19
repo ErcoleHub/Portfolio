@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Ercole — AI Systems Architect · Media & Business Ops</title>
+  <meta name="description" content="Creative Director turned AI systems builder. 15+ years leading teams, owning P&Ls, and building the infrastructure that makes businesses run faster." />
+
+  <!-- Open Graph / Facebook / LinkedIn / iMessage -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Justin Ercole — AI Systems Architect · Media & Business Ops" />
+  <meta property="og:description" content="Creative Director turned AI systems builder. 15+ years leading teams, owning P&Ls, and building the infrastructure that makes businesses run faster." />
+  <meta property="og:url" content="https://www.justinercole.com/" />
+  <meta property="og:image" content="https://www.justinercole.com/og-image-v2.png" />
+  <meta property="og:site_name" content="Justin Ercole" />
+  <meta property="og:image:width" content="1228" />
+  <meta property="og:image:height" content="780" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Justin Ercole — AI Systems Architect · Media & Business Ops" />
+  <meta name="twitter:description" content="Creative Director turned AI systems builder. 15+ years leading teams, owning P&Ls, and building the infrastructure that makes businesses run faster." />
+  <meta name="twitter:image" content="https://www.justinercole.com/og-image-v2.png" />
+  <link rel="canonical" href="https://www.justinercole.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg2: #0d0d0d;
+      --card: #111111;
+      --card-hover: #141414;
+      --text: #f5f2ed;
+      --muted: #888888;
+      --gold: #e8c84a;
+      --cyan: #00e5cc;
+      --purple: #b44fff;
+      --orange: #ff6a00;
+      --border: rgba(255,255,255,0.08);
+      --bebas: 'Bebas Neue', sans-serif;
+      --inter: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--inter);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--bebas);
+      font-size: 1.35rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: var(--inter);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-family: var(--inter);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #0a0a0a;
+      padding: 0.55rem 1.1rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 5rem;
+      left: 3rem;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--inter);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline {
+      font-family: var(--bebas);
+      font-size: clamp(4.5rem, 8.5vw, 8.5rem);
+      line-height: 0.92;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline .line-make { color: var(--cyan); display: block; }
+    .hero-headline .line-brands {
+      color: var(--text);
+      -webkit-text-stroke: 1px rgba(245,242,237,0.4);
+      display: block;
+    }
+    .hero-headline .line-hit { color: var(--gold); display: block; }
+
+    .hero-headline-systems .line-1,
+    .hero-headline-systems .line-2,
+    .hero-headline-systems .line-3,
+    .hero-headline-systems .line-4 { color: var(--text); display: block; }
+
+    .hero-body {
+      font-family: var(--inter);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #ccc9c2;
+      max-width: 460px;
+      line-height: 1.6;
+      text-wrap: balance;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: var(--inter);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--text);
+      color: #0a0a0a;
+      padding: 0.75rem 1.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--gold); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 5rem;
+      right: 3rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+
+    .hero-stat { text-align: right; }
+
+    .hero-stat-num {
+      font-family: var(--bebas);
+      font-size: 2.8rem;
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-family: var(--inter);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 1.1rem 0;
+      background: var(--bg);
+      height: 62px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 50s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2.5rem;
+      border-right: 0.5px solid var(--border);
+      height: 62px;
+    }
+
+    .marquee-item:last-child { border-right: none; }
+
+    .marquee-item img {
+      height: 28px;
+      width: auto;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      display: block;
+    }
+
+    .marquee-item img:hover { opacity: 0.9; }
+
+    /* ─── SECTIONS SHARED ─── */
+    section { padding: 7rem 3rem; }
+
+    .section-label {
+      font-family: var(--bebas);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-headline {
+      font-family: var(--bebas);
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 0.92;
+      margin-bottom: 3.5rem;
+    }
+
+    .accent-gold   { color: var(--gold); }
+    .accent-cyan   { color: var(--cyan); }
+    .accent-purple { color: var(--purple); }
+    .accent-orange { color: var(--orange); }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 0.5px solid var(--border);
+    }
+
+    .service-card {
+      padding: 1.75rem;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.2s;
+    }
+
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-card:hover { background: var(--card-hover); }
+
+    .service-num-bg {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-family: var(--bebas);
+      font-size: 5rem;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .service-title {
+      font-family: var(--bebas);
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .service-desc {
+      font-family: var(--inter);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 0.5px solid var(--gold);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ─── CASE STUDIES ─── */
+    #work { background: var(--bg); border-top: 0.5px solid var(--border); }
+
+    .work-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+    }
+
+    .view-all {
+      font-family: var(--inter);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 0.5px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .view-all:hover { color: var(--gold); border-color: var(--gold); }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 0.5px solid var(--border);
+    }
+
+    .work-card {
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+      overflow: hidden;
+    }
+
+    .work-card:nth-child(2n) { border-right: none; }
+    .work-card:nth-child(n+3) { border-bottom: none; }
+    .work-card:hover { background: var(--card-hover); }
+
+    .work-thumb {
+      height: 220px;
+      background: #141414;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .work-card:hover .work-thumb { transform: scale(1.02); }
+
+    .work-thumb-label {
+      font-family: var(--inter);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .work-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .work-meta { flex: 1; }
+
+    .work-title {
+      font-family: var(--bebas);
+      font-size: 1.5rem;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .work-result {
+      font-family: var(--inter);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--cyan);
+      margin-bottom: 0.3rem;
+    }
+
+    .work-category {
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .work-arrow {
+      font-size: 1.2rem;
+      color: var(--gold);
+      transform: translateX(-6px);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .work-card:hover .work-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ─── SYSTEMS ─── */
+    #systems {
+      background: var(--bg2);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .systems-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 4rem;
+      align-items: start;
+    }
+
+    .systems-body p {
+      font-family: var(--inter);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .systems-body p:last-child { margin-bottom: 0; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .tag-pill {
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+    }
+
+    .tag-cyan   { color: var(--cyan);   border-color: rgba(0,229,204,0.35);  transition: background 0.2s, color 0.2s; }
+    .tag-gold   { color: var(--gold);   border-color: rgba(232,200,74,0.35); transition: background 0.2s, color 0.2s; }
+    .tag-purple { color: var(--purple); border-color: rgba(180,79,255,0.35); transition: background 0.2s, color 0.2s; }
+    .tag-orange { color: var(--orange); border-color: rgba(255,106,0,0.4);   transition: background 0.2s, color 0.2s; }
+
+    .tag-cyan:hover   { background: var(--cyan);   color: #0a0a0a; }
+    .tag-gold:hover   { background: var(--gold);   color: #0a0a0a; }
+    .tag-purple:hover { background: var(--purple); color: #0a0a0a; }
+    .tag-orange:hover { background: var(--orange); color: #0a0a0a; }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 0.5px solid var(--border);
+    }
+
+    .system-card {
+      padding: 1.75rem;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      cursor: default;
+      transition: background 0.2s;
+    }
+
+    .system-card:nth-child(3n) { border-right: none; }
+    .system-card:nth-child(n+4) { border-bottom: none; }
+    .system-card:hover { background: var(--card-hover); }
+
+    .system-tag {
+      font-family: var(--inter);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.7rem;
+    }
+
+    .system-title {
+      font-family: var(--bebas);
+      font-size: 1.45rem;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .system-quote {
+      font-family: var(--inter);
+      font-size: 0.8rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0.7rem;
+      padding-left: 0.7rem;
+      border-left: 1px solid rgba(0,229,204,0.35);
+    }
+
+    .system-desc {
+      font-family: var(--inter);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Audience tabs */
+    .audience-tabs {
+      display: flex;
+      gap: 2.25rem;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    .audience-tab {
+      font-family: var(--inter);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #555;
+      background: transparent;
+      border: 0;
+      padding: 1rem 0;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .audience-tab:hover { color: #aaa; }
+    .audience-tab.active { color: var(--text); }
+
+    .audience-tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -0.5px;
+      height: 1.5px;
+      background: var(--cyan);
+    }
+
+    .audience-tabs-wrap { margin-top: 3rem; }
+    .audience-tabs-wrap + .systems-grid { border-top: none; }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-headline {
+      font-family: var(--bebas);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      line-height: 0.92;
+      margin-bottom: 2rem;
+    }
+
+    .about-copy p {
+      font-family: var(--inter);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    .about-stat-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 0.5px solid var(--border);
+      margin-top: 2.5rem;
+    }
+
+    .about-stat {
+      padding: 1.25rem 1.5rem;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .about-stat:last-child { border-right: none; }
+
+    .about-stat-num {
+      font-family: var(--bebas);
+      font-size: 2.4rem;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-stat-label {
+      font-family: var(--inter);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .about-photo {
+      width: 60%;
+      margin: 0 auto;
+      margin-top: -3rem;
+      aspect-ratio: 3 / 4;
+      background: #0a0a0a;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: -2rem;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, transparent 55%, #0a0a0a 100%),
+        linear-gradient(to right,  #0a0a0a 0%, transparent 10%),
+        linear-gradient(to left,   #0a0a0a 0%, transparent 10%),
+        linear-gradient(to top,    #0a0a0a 0%, transparent 10%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .about-rain-canvas {
+      width: 60%;
+      height: 260px;
+      display: block;
+      position: relative;
+      z-index: 0;
+      margin: 0 auto;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--bg2);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-headline {
+      font-family: var(--bebas);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      line-height: 0.92;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-pair-label {
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-pair-value {
+      font-family: var(--bebas);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-field { display: flex; flex-direction: column; }
+
+    .form-field label {
+      font-family: var(--inter);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--inter);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid rgba(255,255,255,0.15);
+      padding: 0.5rem 0;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-field select { cursor: pointer; }
+
+    .form-field select option {
+      background: #1a1a1a;
+      color: var(--text);
+    }
+
+    .form-field textarea {
+      resize: none;
+      height: 100px;
+      line-height: 1.65;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-submit {
+      font-family: var(--inter);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #0a0a0a;
+      border: none;
+      padding: 0.85rem 1.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .form-submit:hover  { opacity: 0.85; }
+    .form-submit:active { transform: scale(0.98); }
+
+    .form-success {
+      font-family: var(--bebas);
+      font-size: 2.4rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: var(--gold);
+      padding: 1.2rem 0 0.4rem;
+      display: none;
+    }
+
+    .form-success.visible { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 1.75rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+    }
+
+    .footer-logo {
+      font-family: var(--bebas);
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .footer-copy {
+      font-family: var(--inter);
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    .footer-links a {
+      font-family: var(--inter);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ─── CUSTOM CURSOR ─── */
+    * { cursor: none !important; }
+
+    #cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: #ff6a00;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s;
+      box-shadow: 0 0 8px 3px rgba(255,106,0,0.7), 0 0 20px 6px rgba(255,106,0,0.3);
+    }
+
+    #cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(255,106,0,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s, border-color 0.2s;
+    }
+
+    body:has(a:hover) #cursor,
+    body:has(button:hover) #cursor { width: 16px; height: 16px; }
+    body:has(a:hover) #cursor-ring,
+    body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: rgba(255,106,0,0.8); }
+
+    /* ─── TABLET ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      .hero-content { left: 1.5rem; bottom: 3.5rem; }
+      .hero-stats { right: 1.5rem; bottom: 3.5rem; }
+      .hero-stat-num { font-size: 2rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 0.5px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .service-card:nth-child(n+5) { border-bottom: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card:nth-child(n) { border-right: none; border-bottom: 0.5px solid var(--border); }
+      .work-card:last-child { border-bottom: none; }
+      .systems-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+      .systems-grid { grid-template-columns: 1fr 1fr; }
+      .system-card:nth-child(3n) { border-right: 0.5px solid var(--border); }
+      .system-card:nth-child(2n) { border-right: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo { max-width: 400px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    /* ─── PHONE ─── */
+    @media (max-width: 640px) {
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 6rem 1.5rem 3rem;
+      }
+      .hero-content,
+      .hero-stats {
+        position: static;
+        left: auto; right: auto; bottom: auto;
+        max-width: 100%;
+      }
+      .hero-headline { font-size: clamp(3rem, 13vw, 4.5rem); }
+      .hero-body { font-size: 0.9rem; max-width: none; }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: start;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 0.5px solid var(--border);
+      }
+      .hero-stat {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero-stat-num   { font-size: 1.6rem; line-height: 1; display: block; }
+      .hero-stat-label { font-size: 0.55rem; line-height: 1.3; display: block; }
+
+      section { padding: 4rem 1.25rem; }
+      .section-headline { font-size: clamp(2rem, 9vw, 3rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Justin Ercole</a>
+    <div class="nav-links">
+      <a href="#systems">Systems</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-eyebrow">AI Systems Architect · Creative Director · Los Angeles.</p>
+      <h1 class="hero-headline hero-headline-systems">
+        <span class="line-1">I BUILD</span>
+        <span class="line-2">THE <span class="accent-cyan">MACHINES</span></span>
+        <span class="line-3">BEHIND</span>
+        <span class="line-4">THE <span class="accent-gold">WORK</span>.</span>
+      </h1>
+      <p class="hero-body">Businesses don't need more AI tools. They need someone to identify the right problems and build tailored systems that actually solve them. That's what I do.</p>
+      <a href="#work" class="hero-cta">View My Work →</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num accent-cyan">15+</span>
+        <span class="hero-stat-label">Years in production</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num accent-gold">Emmy</span>
+        <span class="hero-stat-label">Award-winning work</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num accent-purple">100+</span>
+        <span class="hero-stat-label">Automation systems built</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee-track">
+      <!-- JS fills this -->
+    </div>
+  </div>
+
+  <!-- 01 SYSTEMS -->
+  <section id="systems">
+    <p class="section-label">01 — Systems &amp; Automation</p>
+    <div class="systems-intro">
+      <div>
+        <h2 class="section-headline" style="margin-bottom:0;">
+          MOST PEOPLE<br>
+          <span class="accent-cyan">BRIEF ENGINEERS</span>.<br>
+          I OPEN THE<br>
+          <span class="accent-purple">TERMINAL</span>.
+        </h2>
+      </div>
+      <div class="systems-body">
+        <p>Using Claude Code and n8n, I design and ship automation systems that eliminate repetitive work, accelerate decision-making, and scale output without scaling headcount.</p>
+        <p>Most people who build AI systems have never run a team, owned a budget, or been accountable for results. With 15+ years leading teams and owning P&amp;Ls, I understand how work actually moves through a business: where it slows down, where it gets duplicated, and where the real ROI is hiding. I'm not just here to build. I'm here to diagnose what's actually worth building — and that's a different skill entirely.</p>
+        <div class="tag-row">
+          <span class="tag-pill tag-cyan">Claude Code</span>
+          <span class="tag-pill tag-gold">n8n</span>
+          <span class="tag-pill tag-purple">Make</span>
+          <span class="tag-pill tag-orange">GitHub</span>
+          <span class="tag-pill tag-cyan">MCP Servers</span>
+          <span class="tag-pill tag-gold">Webhooks</span>
+          <span class="tag-pill tag-purple">APIs</span>
+          <span class="tag-pill tag-orange">OpenRouter</span>
+          <span class="tag-pill tag-cyan">Airtable</span>
+          <span class="tag-pill tag-gold">Perplexity</span>
+          <span class="tag-pill tag-purple">Apify</span>
+          <span class="tag-pill tag-orange">Firecrawl</span>
+          <span class="tag-pill tag-cyan">Slack</span>
+          <span class="tag-pill tag-gold">Adobe Creative Cloud</span>
+          <span class="tag-pill tag-purple">Google Workspace</span>
+        </div>
+      </div>
+    </div>
+    <div class="audience-tabs-wrap">
+      <div class="audience-tabs" role="tablist">
+        <button class="audience-tab active" data-tab="media" role="tab" aria-selected="true">Media &amp; Creators</button>
+        <button class="audience-tab" data-tab="ecom" role="tab" aria-selected="false">E-Commerce &amp; DTC</button>
+        <button class="audience-tab" data-tab="agency" role="tab" aria-selected="false">Agencies &amp; Consultants</button>
+      </div>
+    </div>
+    <div class="systems-grid" id="audience-grid"></div>
+  </section>
+
+  <script>
+    (function () {
+      const data = {
+        media: [
+          ["Intelligence", "DTC Creative Trend Scraper", "Our creative team is briefing from vibes, not data.", "Monitors Reddit threads and social comments in your category daily. Surfaces trending hooks, audience language, and competitor angles — delivered before your next brief."],
+          ["Reporting", "Creative Performance Report Builder", "Building the monthly creative report takes someone two days every single month.", "Drop in your raw ad data and AI auto-builds a structured performance deck — winners, losers, hooks that worked, spend efficiency by format. Ready to send to clients or leadership before anyone opens a spreadsheet."],
+          ["Creator", "Personal Brand Operating System", "I'm spending more time running my brand than actually building it.", "AI manages the full back-end of your creator business — fan comments, brand deal follow-ups, shop inquiries, and DMs. All in your voice. All on autopilot. You make the content. Everything else handles itself."],
+          ["Content", "Brand Newsletter on Autopilot", "Our newsletter is weeks behind and nobody has time to fix it.", "AI researches, drafts, personalizes, and schedules every issue. Your editor reviews and approves. Your subscribers get consistent, on-brand content without burning out your team."],
+          ["Support", "E-Commerce Support Inbox Agent", "Half our support tickets are just 'where's my order.'", "AI reads every inbound email and drafts a reply before your agent opens their inbox. Returns, order status, warranty questions — handled in minutes, not hours."],
+          ["Performance", "Persona-Driven Ad Builder", "Our ads say the right things — just not to the right person in the right way.", "Feed in a customer persona and AI constructs ads built around how that person actually thinks. Generates iterations automatically and can clone competitor ads for your brand's voice. Every concept starts from psychology, not a blank page."],
+          ["Intelligence", "Founder Daily Intelligence Brief", "I spend the first hour every day just trying to get up to speed.", "Pick 3–5 topics. AI synthesizes overnight developments into a clean summary waiting before your first call. An EA's full morning research task, done automatically."],
+          ["Operations", "Client Onboarding System", "Every new client we sign means a week of manual setup before real work even starts.", "Contract signed — onboarding starts itself. AI auto-generates the welcome packet, kickoff brief, intake questionnaire, and first-week schedule routed to the right people. Your team shows up to the kickoff call ready, not scrambling."],
+          ["Custom", "Bespoke Build", "Our problem doesn't fit neatly into any category.", "Got a workflow too specific for an off-the-shelf tool? I scope, design, and ship custom automation infrastructure from scratch — built around your exact operations."]
+        ],
+        ecom: [
+          ["Intelligence", "Customer Language Mining", "We write our own product copy but our customers describe it completely differently.", "AI scrapes reviews, forums, and comments in your category daily. Extracts the exact words your customers use to describe problems, desires, and objections — fed directly into your copy and creative briefs."],
+          ["Performance", "Persona-Driven Ad Builder", "Our ads say the right things — just not to the right person in the right way.", "Feed in a customer persona and AI constructs ads built around how that person actually thinks. Generates iterations automatically and can clone competitor ads for your brand's voice. Every concept starts from psychology, not a blank page."],
+          ["Reporting", "Creative Performance Report Builder", "Building the monthly creative report takes someone two days every single month.", "Drop in your raw ad data and AI auto-builds a structured performance deck — winners, losers, hooks that worked, spend efficiency by format. Ready for leadership before anyone opens a spreadsheet."],
+          ["Retention", "Post-Purchase Retention Engine", "We close the sale and then go completely silent.", "Triggered sequences fire after every purchase — personalized, on-brand, perfectly timed. Repeat buyers go up. Refund requests go down. LTV compounds automatically."],
+          ["Retention", "Dormant Customer Win-Back", "We have tens of thousands of past customers we've never gone back to.", "AI reactivates your dormant list with personalized outreach sequenced around their last purchase. No batch-and-blast. Recovers revenue already sitting in your CRM."],
+          ["Support", "E-Commerce Support Inbox Agent", "Half our support tickets are just 'where's my order.'", "AI reads every inbound email and drafts a reply before your agent opens their inbox. Returns, order status, warranty questions — handled in minutes, not hours."],
+          ["Content", "Product Launch Content System", "Every product launch we scramble to write emails, ads, and social from scratch.", "Feed in the product brief and AI generates the full launch package — email sequence, ad copy variants, product descriptions, and social captions. Launch-ready in hours, not weeks."],
+          ["Intelligence", "Competitor Price &amp; Product Tracker", "We find out competitors changed their pricing after our customers mention it.", "Monitors competitor product pages, pricing, and promotions daily. Every change lands in your team's dashboard before morning standup. Never get caught flat-footed again."],
+          ["Custom", "Bespoke Build", "Our problem doesn't fit neatly into any category.", "Got a workflow too specific for an off-the-shelf tool? I scope, design, and ship custom automation infrastructure from scratch — built around your exact operations."]
+        ],
+        agency: [
+          ["Intelligence", "Client Category Listening Engine", "We spend the first two weeks of every engagement just doing discovery.", "AI monitors social conversations, forums, and press in any client's category from day one. Surfaces audience language, competitor positioning, and trending angles — ready to brief from before the kickoff call."],
+          ["Reporting", "Automated Client Report Builder", "We spend Friday afternoons building decks instead of doing actual work.", "Drop in campaign data and AI assembles a polished client-ready performance report — insights, recommendations, and next steps included. Every client gets a deck that looks like it took a day. It took minutes."],
+          ["Performance", "Persona-Driven Ad Builder", "We brief creatives the same way for every client and wonder why results vary.", "Feed in a client's customer persona and AI constructs ads built around how that buyer actually thinks. Generates iterations and can clone competitor ads in your client's voice. Briefing that scales across accounts."],
+          ["New Business", "Pitch &amp; Proposal Generator", "Writing proposals takes as long as the project itself sometimes.", "Feed in the prospect brief and AI drafts a tailored proposal — scope, timeline, pricing structure, and rationale. Your team refines and sends. New business moves faster without burning out your senior people."],
+          ["Operations", "Client Onboarding System", "Every new client we sign means a week of manual setup before real work starts.", "Contract signed — onboarding starts itself. AI auto-generates the welcome packet, kickoff brief, intake questionnaire, and first-week schedule routed to the right people. Your team shows up ready, not scrambling."],
+          ["Content", "Multi-Client Newsletter System", "We sold newsletter production as a service and now it's eating the team alive.", "AI researches, drafts, and schedules newsletters across every client account simultaneously. Each one on-brand, on-topic, on time. Your team edits and approves. The content machine never stops."],
+          ["Intelligence", "Competitor Launch Tracker", "Our clients find out what their competitors launched before we do.", "Monitors competitor sites, press, and ad activity across every client's category daily. Flags new campaigns, product launches, and pricing changes before they become a client email you weren't ready for."],
+          ["Support", "Inbound Inquiry Triage Agent", "New business emails sit in the inbox for days before anyone responds.", "AI classifies every inbound inquiry the moment it arrives and pre-drafts a reply from your capabilities doc. Your team reviews and sends — no composing from scratch, no leads going cold."],
+          ["Custom", "Bespoke Build", "Our problem doesn't fit neatly into any category.", "Got a workflow too specific for an off-the-shelf tool? I scope, design, and ship custom automation infrastructure from scratch — built around your exact operations."]
+        ]
+      };
+
+      const grid = document.getElementById('audience-grid');
+      const tabs = document.querySelectorAll('.audience-tab');
+
+      function render(key) {
+        const cards = data[key] || [];
+        grid.innerHTML = cards.map(c => (
+          '<div class="system-card">' +
+            '<div class="system-tag">' + c[0] + '</div>' +
+            '<div class="system-title">' + c[1] + '</div>' +
+            '<div class="system-quote">"' + c[2] + '"</div>' +
+            '<div class="system-desc">' + c[3] + '</div>' +
+          '</div>'
+        )).join('');
+      }
+
+      tabs.forEach(t => {
+        t.addEventListener('click', () => {
+          tabs.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected', 'false'); });
+          t.classList.add('active');
+          t.setAttribute('aria-selected', 'true');
+          render(t.dataset.tab);
+        });
+      });
+
+      render('media');
+    })();
+  </script>
+
+  <!-- 02 SERVICES -->
+  <section id="services">
+    <p class="section-label">02 — Services</p>
+    <h2 class="section-headline">WHAT I<br><span class="accent-gold">DO BEST</span></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num-bg">01</span>
+        <div class="service-title">AI Implementation Strategy</div>
+        <div class="service-desc">Helping businesses identify where AI creates real leverage, prioritize what to build first, and avoid the expensive mistake of solving the wrong problem.</div>
+        <span class="service-tag">Strategy · ROI · Change Management</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num-bg">02</span>
+        <div class="service-title">Systems &amp; Automation</div>
+        <div class="service-desc">Custom-built AI workflows that eliminate repetitive work, surface better intelligence, and give any team a structural edge — regardless of industry.</div>
+        <span class="service-tag">n8n · Claude Code · AI Agents</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num-bg">03</span>
+        <div class="service-title">Team Leadership</div>
+        <div class="service-desc">Building and scaling high-performance teams — from in-house departments to agency pods — with the processes and infrastructure to ship at scale without chaos.</div>
+        <span class="service-tag">Leadership · Operations · P&amp;L</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num-bg">04</span>
+        <div class="service-title">Performance Strategy</div>
+        <div class="service-desc">Data-informed creative strategy that identifies what's working, kills what isn't, and scales winners across channels — built around real business outcomes, not vanity metrics.</div>
+        <span class="service-tag">Creative Testing · Paid Social · CPA</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num-bg">05</span>
+        <div class="service-title">Audience &amp; Messaging Strategy</div>
+        <div class="service-desc">Persona-driven messaging frameworks that give teams a strategic foundation to brief from — turning customer insight into creative direction that actually converts.</div>
+        <span class="service-tag">Personas · Positioning · Creative Brief</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num-bg">06</span>
+        <div class="service-title">Creative Direction</div>
+        <div class="service-desc">Concept-to-delivery creative leadership across video, digital, and branded content — built for brands that need ideas that perform, not just look good.</div>
+        <span class="service-tag">TV · Branded Content · DTC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CASE STUDIES -->
+  <section id="work">
+    <div class="work-header">
+      <div>
+        <p class="section-label">03 — Selected Work</p>
+        <h2 class="section-headline">CASE<br><span class="accent-gold">STUDIES</span></h2>
+      </div>
+      <a href="#" class="view-all">View All Work →</a>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
+        <div class="work-info">
+          <div class="work-meta">
+            <div class="work-title">Supplement Brand Launch</div>
+            <div class="work-result">3.2x ROAS lift in 6 weeks</div>
+            <div class="work-category">Performance Creative · Health DTC</div>
+          </div>
+          <span class="work-arrow">↗</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
+        <div class="work-info">
+          <div class="work-meta">
+            <div class="work-title">Primetime Series Production</div>
+            <div class="work-result">Emmy Award-winning</div>
+            <div class="work-category">Network Television</div>
+          </div>
+          <span class="work-arrow">↗</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
+        <div class="work-info">
+          <div class="work-meta">
+            <div class="work-title">DTC Creative System Build</div>
+            <div class="work-result">28% CPA reduction</div>
+            <div class="work-category">Full-Funnel Creative</div>
+          </div>
+          <span class="work-arrow">↗</span>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-label">Case Study Visual</span></div>
+        <div class="work-info">
+          <div class="work-meta">
+            <div class="work-title">Ad Cloning Automation System</div>
+            <div class="work-result">10x creative output velocity</div>
+            <div class="work-category">Systems · n8n</div>
+          </div>
+          <span class="work-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 ABOUT -->
+  <section id="about">
+    <p class="section-label">04 — About</p>
+    <div class="about-grid">
+      <div>
+        <h2 class="about-headline">CRAFT<br>THAT<br><span class="accent-cyan">CONVERTS</span></h2>
+        <div class="about-copy">
+          <p>I started in network television and spent the next 15 years moving deeper into performance, strategy, and the operational side of creative businesses. I've led teams, owned P&amp;Ls, and directed productions. But a lot of that time was spent inside startups, building departments that didn't exist yet, with no processes, no precedent, and real pressure to perform.</p>
+          <p>That's where I learned how businesses actually work — and in recent years, AI is how I make them work better.</p>
+          <p>That experience is exactly why I build AI systems now. I know what broken processes look like from the inside, which means I know how to fix them and what it actually takes to make a new one stick.</p>
+          <p>Based in Los Angeles and currently available for consulting, fractional leadership, or custom AI system builds.</p>
+        </div>
+        <div class="about-stat-bar">
+          <div class="about-stat">
+            <span class="about-stat-num accent-cyan">15+</span>
+            <span class="about-stat-label">Years in production</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num accent-gold">Emmy</span>
+            <span class="about-stat-label">Award-winning work</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num accent-purple">100+</span>
+            <span class="about-stat-label">Systems built</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-photo">
+          <img src="uploads/-re1top4Y1UnErElP6jXo_dd92ad60117b427ca3a974925e784c77.jpg" alt="Justin Ercole" />
+        </div>
+        <canvas class="about-rain-canvas" id="about-rain"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CONTACT -->
+  <section id="contact">
+    <p class="section-label">05 — Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-headline">LET'S BUILD<br>SOMETHING<br><span class="accent-gold">BOLD.</span></h2>
+        <div class="contact-meta">
+          <div>
+            <div class="contact-pair-label">Based in</div>
+            <div class="contact-pair-value">Los Angeles CA</div>
+          </div>
+          <div>
+            <div class="contact-pair-label">Available for</div>
+            <div class="contact-pair-value">Select Roles &amp; Projects</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="access_key" value="163a79bd-c1a7-4a91-bff2-c0075640d4da" />
+          <input type="hidden" name="subject" value="New inquiry from justinercole.com" />
+          <input type="hidden" name="from_name" value="Justin Ercole Portfolio" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Alex" required />
+            </div>
+            <div class="form-field">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Johnson" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+          </div>
+          <div class="form-field">
+            <label for="project">What are you looking for?</label>
+            <select id="project" name="project">
+              <option value="" disabled selected style="color:rgba(255,255,255,0.3)">Select a category</option>
+              <option value="ai-build">AI System Build</option>
+              <option value="ai-strategy">AI Strategy Consultation</option>
+              <option value="hiring">Hiring for a Role</option>
+              <option value="performance">Performance Creative</option>
+              <option value="speaking">Speaking or Collaboration</option>
+              <option value="joining">Joining Your Team</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about what you're building…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send It →</button>
+          <div class="form-success" id="form-success">Be in touch soon!</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Justin Ercole</span>
+    <span class="footer-copy">© 2026 · Los Angeles</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/justinercole/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:Justin.Ercole@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    // ─── CUSTOM CURSOR ───
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+    });
+
+    (function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; ring.style.opacity = '1'; });
+
+    // ─── MARQUEE ───
+    const logos = [
+      { src: 'uploads/168-1680805_fitbit-logo-fitbit-alta-hr-black-e480fece.png', invert: true,  height: '30px' },
+      { src: 'uploads/chil.png',                                                  invert: true,  height: '22px' },
+      { src: 'uploads/69442a307b63287fb07266cc_Group_9721.png',                   invert: true,  height: '38px' },
+      { src: 'uploads/beaststore.png',                                             invert: true,  height: '34px' },
+      { src: 'uploads/doublewood.png',                                             invert: true,  height: '90px' },
+      { src: 'uploads/Chillshark_Wordmark_White_TM.webp',                         invert: false, height: '22px' },
+    ];
+
+    const track = document.getElementById('marquee-track');
+    const doubled = [...logos, ...logos];
+    doubled.forEach(({ src, invert, height }) => {
+      const el = document.createElement('span');
+      el.className = 'marquee-item';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Client logo';
+      img.style.filter = invert ? 'invert(1)' : 'none';
+      img.style.height = height;
+      el.appendChild(img);
+      track.appendChild(el);
+    });
+
+    // ─── FORM ───
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const originalLabel = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.style.opacity = '0.6';
+      btn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          form.style.display = 'none';
+          document.getElementById('form-success').classList.add('visible');
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.error('Form submission error:', err);
+        btn.textContent = 'Error — try again';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = originalLabel; }, 2500);
+      }
+    }
+
+    // ─── CODE RAIN ───
+    (function() {
+      const canvas = document.getElementById('about-rain');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const cols = ['#00e5cc', '#b44fff', '#e8c84a', '#ff6a00', '#00e5cc', '#b44fff'];
+      const FONT_SIZE = 13;
+      const chars = 'const director={name:"JustinErcole",role:"CreativeDir",stack:["n8n","ClaudeCode","MetaAds"],emmy:true,years:15,};asyncfunctionbuildCampaign(brief){conststrategy=awaitanalyze(brief);constcreative=awaitdirect(strategy);returndeploy(system);}n8n.workflow({trigger:"new_brief",nodes:[researchAudience(),generateHooks(15),scoreByROAS(),launchTopVariants(),]});01101011010110'.split('');
+
+      let drops = [];
+      function initDrops() {
+        const cols_count = Math.floor(canvas.width / FONT_SIZE);
+        drops = [];
+        for (let i = 0; i < cols_count; i++) {
+          drops.push(Math.random() * (canvas.height / FONT_SIZE));
+        }
+      }
+      initDrops();
+      window.addEventListener('resize', initDrops);
+
+      function draw() {
+        ctx.fillStyle = 'rgba(10,10,10,0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const topGrad = ctx.createLinearGradient(0, 0, 0, canvas.height * 0.35);
+        topGrad.addColorStop(0, 'rgba(10,10,10,0.95)');
+        topGrad.addColorStop(1, 'rgba(10,10,10,0)');
+        ctx.fillStyle = topGrad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height * 0.35);
+
+        const botGrad = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height);
+        botGrad.addColorStop(0, 'rgba(10,10,10,0)');
+        botGrad.addColorStop(1, 'rgba(10,10,10,1)');
+        ctx.fillStyle = botGrad;
+        ctx.fillRect(0, canvas.height * 0.6, canvas.width, canvas.height * 0.4);
+
+        ctx.font = FONT_SIZE + 'px "Courier New", monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillStyle = cols[i % cols.length];
+          ctx.globalAlpha = 0.9;
+          ctx.fillText(char, i * FONT_SIZE, drops[i] * FONT_SIZE);
+          ctx.globalAlpha = 1;
+
+          if (drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i] += 0.3;
+        }
+      }
+
+      setInterval(draw, 40);
+    })();
+
+    // ─── NAV active state ───
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href').replace('#', '');
+            link.style.color = href === entry.target.id ? 'var(--text)' : '';
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
