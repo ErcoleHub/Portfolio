@@ -1170,6 +1170,27 @@
 
       section { padding: 4rem 1.25rem; }
       .section-headline { font-size: clamp(2rem, 9vw, 3rem); }
+
+      /* ─── FLOW CARDS MOBILE ─── */
+      .flow-thumb { height: auto; min-height: 200px; padding: 1.5rem 0; gap: 1rem; }
+      .flow-nodes { gap: 0.3rem; padding: 0 0.75rem; }
+      .flow-node {
+        font-size: 0.5rem;
+        padding: 0.3rem 0.55rem;
+        letter-spacing: 0.07em;
+      }
+      .flow-arr { font-size: 0.6rem; }
+      .flow-badge { font-size: 0.44rem; letter-spacing: 0.15em; }
+      .flow-badge::before, .flow-badge::after { width: 16px; }
+      .flow-loop-row { height: 18px; }
+      .flow-loop-u { height: 13px; }
+      .agents-dropdown { min-width: 100px; padding: 0.5rem 0.65rem; }
+      .agent-tag { font-size: 0.46rem; padding: 0.2rem 0.45rem; }
+      .branch-or { font-size: 0.4rem; }
+      .work-title { font-size: 1.2rem; }
+      .demo-btn { font-size: 0.58rem; padding: 0.5rem 0.9rem; }
+      .flow-nodes--ac { flex-direction: column; gap: 0.3rem; }
+      .flow-nodes--ac .flow-arr { transform: rotate(90deg); }
     }
   </style>
 </head>
@@ -1746,8 +1767,9 @@
       loop.style.left  = left + 'px';
       loop.style.width = (right - left) + 'px';
     }
-    window.addEventListener('load',   initBrandDealLoop);
-    window.addEventListener('resize', initBrandDealLoop);
+    window.addEventListener('load',              () => setTimeout(initBrandDealLoop, 50));
+    window.addEventListener('resize',            initBrandDealLoop);
+    window.addEventListener('orientationchange', () => setTimeout(initBrandDealLoop, 100));
   </script>
 </body>
 </html>
