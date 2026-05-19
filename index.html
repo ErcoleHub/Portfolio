@@ -545,6 +545,96 @@
     }
     .demo-btn:hover { background: var(--cyan); }
 
+    .flow-nodes--ac { align-items: center; }
+    .brand-deal-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .flow-loop-row {
+      width: 100%;
+      height: 22px;
+      position: relative;
+    }
+    .flow-loop-u {
+      position: absolute;
+      height: 16px;
+      bottom: 0;
+      border-left: 0.5px solid rgba(0,229,204,0.5);
+      border-bottom: 0.5px solid rgba(0,229,204,0.5);
+      border-right: 0.5px solid rgba(0,229,204,0.5);
+    }
+    .flow-loop-u::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: -5px;
+      width: 0;
+      height: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-bottom: 5px solid rgba(0,229,204,0.65);
+    }
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .branch-or {
+      font-family: var(--inter);
+      font-size: 0.44rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .flow-node--btn {
+      cursor: pointer;
+      user-select: none;
+    }
+    .flow-node--btn:hover {
+      border-color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,1);
+    }
+    .flow-caret {
+      font-size: 0.48rem;
+      margin-left: 0.2rem;
+      color: var(--cyan);
+    }
+    .flow-thumb--drop { overflow: visible; }
+    .flow-expandable { position: relative; display: inline-flex; align-items: center; }
+    .agents-dropdown {
+      position: absolute;
+      top: calc(100% + 0.45rem);
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.28rem;
+      background: #111111;
+      border: 0.5px solid rgba(0,229,204,0.25);
+      padding: 0.6rem 0.85rem;
+      z-index: 30;
+      min-width: 120px;
+    }
+    .agents-dropdown.open { display: flex; }
+    .agent-tag {
+      font-family: var(--inter);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      padding: 0.22rem 0.5rem;
+      border: 0.5px solid rgba(0,229,204,0.2);
+      background: rgba(0,229,204,0.05);
+      white-space: nowrap;
+      text-align: center;
+    }
+
     /* ─── SYSTEMS ─── */
     #systems {
       background: var(--bg2);
@@ -1304,34 +1394,54 @@
       <div class="work-card" style="cursor:default;">
         <div class="flow-thumb">
           <div class="flow-badge">Live System</div>
-          <div class="flow-nodes">
-            <span class="flow-node">Typeform</span>
-            <span class="flow-arr">→</span>
-            <span class="flow-node">n8n</span>
-            <span class="flow-arr">→</span>
-            <span class="flow-node">Airtable</span>
-            <span class="flow-arr">→</span>
-            <span class="flow-node">Workspace</span>
+          <div class="brand-deal-flow">
+            <div class="flow-nodes" id="brand-deal-nodes">
+              <span class="flow-node">Typeform</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node" id="bd-slack">Slack</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node">Airtable</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node" id="bd-workspace">Gmail</span>
+            </div>
+            <div class="flow-loop-row">
+              <div class="flow-loop-u" id="bd-loop"></div>
+            </div>
           </div>
         </div>
         <div class="work-info work-info--demo">
           <div class="work-meta">
             <div class="work-title">Brand Deal Pipeline</div>
             <div class="work-result">Inbound to proposal — automated end to end</div>
-            <div class="work-category">Typeform · n8n · Airtable · Google Workspace</div>
+            <div class="work-category">Typeform · Slack · Airtable · Gmail</div>
             <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
           </div>
         </div>
       </div>
-      <div class="work-card" style="cursor:default;">
-        <div class="flow-thumb">
+      <div class="work-card" style="cursor:default; overflow:visible;">
+        <div class="flow-thumb flow-thumb--drop">
           <div class="flow-badge">Live System</div>
-          <div class="flow-nodes">
-            <span class="flow-node">Meta Ads</span>
+          <div class="flow-nodes flow-nodes--ac">
+            <span class="flow-node">Claude Code</span>
             <span class="flow-arr">→</span>
-            <span class="flow-node">n8n</span>
+            <span class="flow-expandable">
+              <span class="flow-node flow-node--btn" onclick="toggleAgents(this)">7 Agents <span class="flow-caret">▾</span></span>
+              <div class="agents-dropdown" id="agents-list">
+                <span class="agent-tag">Persona</span>
+                <span class="agent-tag">Angle</span>
+                <span class="agent-tag">Emotion</span>
+                <span class="agent-tag">Brand</span>
+                <span class="agent-tag">Conversion</span>
+                <span class="agent-tag">Format</span>
+                <span class="agent-tag">Grammar</span>
+              </div>
+            </span>
             <span class="flow-arr">→</span>
-            <span class="flow-node">Claude AI</span>
+            <div class="flow-branch">
+              <span class="flow-node">Fal.ai</span>
+              <span class="branch-or">or</span>
+              <span class="flow-node">OpenRouter</span>
+            </div>
             <span class="flow-arr">→</span>
             <span class="flow-node">Creative</span>
           </div>
@@ -1340,7 +1450,7 @@
           <div class="work-meta">
             <div class="work-title">Ad Cloning &amp; Generation Pipeline</div>
             <div class="work-result">10x creative output velocity</div>
-            <div class="work-category">Meta Ads · n8n · Claude AI · Google Drive</div>
+            <div class="work-category">Claude Code · Fal.ai · OpenRouter · GPT Image 2</div>
             <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
           </div>
         </div>
@@ -1613,6 +1723,31 @@
     }, { threshold: 0.3 });
 
     document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+    // ─── AGENTS EXPAND ───
+    function toggleAgents(btn) {
+      const list = document.getElementById('agents-list');
+      list.classList.toggle('open');
+      btn.querySelector('.flow-caret').textContent = list.classList.contains('open') ? '▴' : '▾';
+    }
+
+    // ─── BRAND DEAL LOOP ARROW ───
+    function initBrandDealLoop() {
+      const slack     = document.getElementById('bd-slack');
+      const workspace = document.getElementById('bd-workspace');
+      const loop      = document.getElementById('bd-loop');
+      const row       = document.getElementById('brand-deal-nodes');
+      if (!slack || !workspace || !loop || !row) return;
+      const rowRect = row.getBoundingClientRect();
+      const sRect   = slack.getBoundingClientRect();
+      const wRect   = workspace.getBoundingClientRect();
+      const left  = sRect.left  - rowRect.left + sRect.width  / 2;
+      const right = wRect.left  - rowRect.left + wRect.width  / 2;
+      loop.style.left  = left + 'px';
+      loop.style.width = (right - left) + 'px';
+    }
+    window.addEventListener('load',   initBrandDealLoop);
+    window.addEventListener('resize', initBrandDealLoop);
   </script>
 </body>
 </html>
