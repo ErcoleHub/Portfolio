@@ -412,8 +412,6 @@
       overflow: hidden;
     }
 
-    .work-card:nth-child(2n) { border-right: none; }
-    .work-card:nth-child(n+1) { border-bottom: none; }
     .work-card:hover { background: var(--card-hover); }
 
     .work-thumb {
@@ -1434,7 +1432,7 @@
       <a href="#" class="view-all">View All Work →</a>
     </div>
     <div class="work-grid">
-      <div class="work-card" style="cursor:default;">
+      <div class="work-card" style="cursor:default; border-right: 0.5px solid var(--border); border-bottom: none;">
         <div class="flow-thumb">
           <div class="flow-badge">Live System</div>
           <div class="brand-deal-flow">
@@ -1461,14 +1459,14 @@
           </div>
         </div>
       </div>
-      <div class="work-card" style="cursor:default; overflow:visible;">
+      <div class="work-card" style="cursor:default; overflow:visible; border-right: none; border-bottom: none;">
         <div class="flow-thumb flow-thumb--drop">
           <div class="flow-badge">Live System</div>
           <div class="flow-nodes flow-nodes--ac">
             <span class="flow-node">Claude Code</span>
             <span class="flow-arr">→</span>
             <span class="flow-expandable">
-              <span class="flow-node flow-node--btn" onclick="toggleAgents(this)">7 Agents <span class="flow-caret">▾</span></span>
+              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'agents-list')">7 Agents <span class="flow-caret">▾</span></span>
               <div class="agents-dropdown" id="agents-list">
                 <span class="agent-tag">Persona</span>
                 <span class="agent-tag">Angle</span>
@@ -1768,8 +1766,8 @@
     document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
 
     // ─── AGENTS EXPAND ───
-    function toggleAgents(btn) {
-      const list = document.getElementById('agents-list');
+    function toggleDropdown(btn, id) {
+      const list = document.getElementById(id);
       list.classList.toggle('open');
       btn.querySelector('.flow-caret').textContent = list.classList.contains('open') ? '▴' : '▾';
     }
