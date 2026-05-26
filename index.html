@@ -1432,6 +1432,46 @@
       <a href="#" class="view-all">View All Work →</a>
     </div>
     <div class="work-grid">
+      <div class="work-card" style="cursor:default; overflow:visible; grid-column: 1 / -1; border-right: none; border-bottom: 0.5px solid var(--border);">
+        <div class="flow-thumb flow-thumb--drop" style="min-height:320px; gap:1.25rem;">
+          <div class="flow-badge">Live System</div>
+          <div class="flow-nodes">
+            <span class="flow-node">Google Drive</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-expandable">
+              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'assembly-dropdown')">AssemblyAI <span class="flow-caret">▾</span></span>
+              <div class="agents-dropdown" id="assembly-dropdown">
+                <span class="agent-tag">Clip Title</span>
+                <span class="agent-tag">In/Out Time</span>
+                <span class="agent-tag">Hook Hypothesis</span>
+                <span class="agent-tag">Platform</span>
+              </div>
+            </span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Claude API</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Airtable</span>
+          </div>
+          <div style="width: calc(100% - 3rem); border-top: 0.5px solid rgba(0,229,204,0.2);"></div>
+          <div class="flow-nodes">
+            <span class="flow-node">Gmail</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">n8n</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Airtable</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Slack</span>
+          </div>
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">Content Clipping Pipeline</div>
+            <div class="work-result">Long-form to platform-ready clips — automated end to end</div>
+            <div class="work-category">AssemblyAI · Claude API · Airtable · n8n</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
+          </div>
+        </div>
+      </div>
       <div class="work-card" style="cursor:default; border-right: 0.5px solid var(--border); border-bottom: none;">
         <div class="flow-thumb">
           <div class="flow-badge">Live System</div>
