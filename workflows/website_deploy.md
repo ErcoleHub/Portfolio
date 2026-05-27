@@ -11,8 +11,10 @@ Every push to `main` triggers a live deploy in ~30 seconds.
    - "Update the hero headline to say X"
    - "Add a new project card to the work section"
    - "Change the accent color from gold to blue"
-3. Claude Code edits `index.html`, commits, and pushes to `main`
-4. Vercel auto-deploys — no manual action needed
+3. Claude Code creates a feature branch, edits `index.html`, commits, and pushes the branch
+4. Vercel auto-generates a **preview URL** (e.g. `portfolio-abc123.vercel.app`) — review the change there
+5. Approve ("looks good") or request changes
+6. Once approved, Claude Code merges to `main` → Vercel deploys to production in ~30 seconds
 
 ## Repo Info
 - GitHub: https://github.com/ErcoleHub/Portfolio
