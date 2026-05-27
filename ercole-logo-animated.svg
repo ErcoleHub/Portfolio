@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" preserveAspectRatio="xMidYMid meet">
+  
+
+  
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Menlo, Consolas, monospace" font-weight="700" font-size="120" fill="#f5f5f5">
+    <text x="136.6" y="141">E</text>
+    <text x="213.4" y="141">R</text>
+    <text x="290.2" y="141">C</text>
+    <text x="367.0" y="141">O</text>
+    <text x="443.8" y="141">L</text>
+    <text x="520.6" y="141">E</text>
+  </g>
+
+  
+  <rect x="609.4" y="43.3" width="54" height="110.4" fill="#00e5cc">
+    <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite" calcMode="discrete" />
+  </rect>
+
+  
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Menlo, Consolas, monospace" font-weight="500" font-size="24.6" fill="rgba(245,245,245,0.5)">
+    <text x="136.6" y="195">A</text>
+    <text x="180.72" y="195">U</text>
+    <text x="224.85" y="195">T</text>
+    <text x="268.97" y="195">O</text>
+    <text x="313.09" y="195">M</text>
+    <text x="357.21" y="195">A</text>
+    <text x="401.34" y="195">T</text>
+    <text x="445.46" y="195">I</text>
+    <text x="489.58" y="195">O</text>
+    <text x="533.70" y="195">N</text>
+    <text x="577.83" y="195">S</text>
+  </g>
+</svg>

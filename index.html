@@ -74,11 +74,15 @@
     }
 
     .nav-logo {
-      font-family: var(--bebas);
-      font-size: 1.35rem;
-      color: var(--text);
-      letter-spacing: 0.04em;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -1067,6 +1071,18 @@
       color: var(--text);
     }
 
+    .contact-logo-wrap {
+      margin-top: 3rem;
+      overflow: hidden;
+    }
+
+    .contact-logo {
+      display: block;
+      width: 64%;
+      height: auto;
+      transform: translateX(-17.075%);
+    }
+
     .footer-copy {
       font-family: var(--inter);
       font-size: 0.68rem;
@@ -1218,7 +1234,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Justin Ercole</a>
+    <a href="#" class="nav-logo"><img src="ercole-logo-animated.svg" alt="Ercole Automations" /></a>
     <div class="nav-links">
       <a href="#systems">Systems</a>
       <a href="#services">Services</a>
@@ -1590,6 +1606,9 @@
             <div class="contact-pair-label">Available for</div>
             <div class="contact-pair-value">Select Roles &amp; Projects</div>
           </div>
+        </div>
+        <div class="contact-logo-wrap">
+          <img src="ercole-logo-animated.svg" alt="Ercole Automations" class="contact-logo" />
         </div>
       </div>
       <div>
