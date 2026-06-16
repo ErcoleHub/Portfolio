@@ -1461,7 +1461,125 @@
       <a href="#" class="view-all">View All Work →</a>
     </div>
     <div class="work-grid">
+      <!-- CASTING OS — full-width top row -->
       <div class="work-card" style="cursor:default; overflow:visible; grid-column: 1 / -1; border-right: none; border-bottom: 0.5px solid var(--border);">
+        <div class="flow-thumb flow-thumb--drop" style="min-height:320px; gap:1.25rem;">
+          <div class="flow-badge">Live System</div>
+          <div class="flow-nodes">
+            <span class="flow-node">Intake Form</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-expandable">
+              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'casting-wf-dropdown')">8 Workflows <span class="flow-caret">▾</span></span>
+              <div class="agents-dropdown" id="casting-wf-dropdown">
+                <span class="agent-tag" onclick="showWfFlow('wf5', this)">WF5 — Talent Intake</span>
+                <span class="agent-tag" onclick="showWfFlow('wf1', this)">WF1 — AI Match &amp; Show Fit</span>
+                <span class="agent-tag" onclick="showWfFlow('wf6', this)">WF6 — YouTube Enrichment</span>
+                <span class="agent-tag" onclick="showWfFlow('wf7', this)">WF7 — Show Research</span>
+                <span class="agent-tag" onclick="showWfFlow('wf8', this)">WF8 — Profile Enrichment</span>
+                <span class="agent-tag" onclick="showWfFlow('wf2', this)">WF2 — Outreach Draft Gen</span>
+                <span class="agent-tag" onclick="showWfFlow('wf3', this)">WF3 — Daily Follow-Up</span>
+                <span class="agent-tag" onclick="showWfFlow('wf4', this)">WF4 — Weekly Report</span>
+              </div>
+            </span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Airtable</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Gmail</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Slack</span>
+          </div>
+          <div style="width: calc(100% - 3rem); border-top: 0.5px solid rgba(0,229,204,0.2);"></div>
+          <div class="flow-nodes">
+            <span class="flow-node">YouTube API</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Perplexity AI</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Claude API</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">InsightIQ</span>
+          </div>
+          <div id="casting-wf-expansion" style="display:none; flex-direction:column; align-items:center; gap:0.5rem; padding:0.75rem 1.5rem 0; width:100%;">
+            <div id="casting-wf-label" style="font-family:var(--inter); font-size:0.44rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2);"></div>
+            <div id="casting-wf-nodes" class="flow-nodes" style="padding:0 1.5rem;"></div>
+          </div>
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">Fully Automated Talent Pipeline System</div>
+            <div class="work-result">End-to-end talent operations and management automated across 8 workflows</div>
+            <div class="work-category">n8n · Claude API · Airtable · YouTube API · Perplexity · InsightIQ</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- BRAND DEAL — left half, middle row (border-bottom added) -->
+      <div class="work-card" style="cursor:default; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);">
+        <div class="flow-thumb">
+          <div class="flow-badge">Live System</div>
+          <div class="brand-deal-flow">
+            <div class="flow-nodes" id="brand-deal-nodes">
+              <span class="flow-node">Typeform</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node" id="bd-slack">Slack</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node">Airtable</span>
+              <span class="flow-arr">→</span>
+              <span class="flow-node" id="bd-workspace">Gmail</span>
+            </div>
+            <div class="flow-loop-row">
+              <div class="flow-loop-u" id="bd-loop"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">Brand Deal Pipeline</div>
+            <div class="work-result">Inbound to proposal — automated end to end</div>
+            <div class="work-category">Typeform · Slack · Airtable · Gmail</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- AD CLONING — right half, middle row (border-bottom added) -->
+      <div class="work-card" style="cursor:default; overflow:visible; border-right: none; border-bottom: 0.5px solid var(--border);">
+        <div class="flow-thumb flow-thumb--drop">
+          <div class="flow-badge">Live System</div>
+          <div class="flow-nodes flow-nodes--ac">
+            <span class="flow-node">Claude Code</span>
+            <span class="flow-arr">→</span>
+            <span class="flow-expandable">
+              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'agents-list')">7 Agents <span class="flow-caret">▾</span></span>
+              <div class="agents-dropdown" id="agents-list">
+                <span class="agent-tag">Persona</span>
+                <span class="agent-tag">Angle</span>
+                <span class="agent-tag">Emotion</span>
+                <span class="agent-tag">Brand</span>
+                <span class="agent-tag">Conversion</span>
+                <span class="agent-tag">Format</span>
+                <span class="agent-tag">Grammar</span>
+              </div>
+            </span>
+            <span class="flow-arr">→</span>
+            <div class="flow-branch">
+              <span class="flow-node">Fal.ai</span>
+              <span class="branch-or">or</span>
+              <span class="flow-node">OpenRouter</span>
+            </div>
+            <span class="flow-arr">→</span>
+            <span class="flow-node">Creative</span>
+          </div>
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">Ad Cloning &amp; Generation Pipeline</div>
+            <div class="work-result">10x creative output velocity</div>
+            <div class="work-category">Claude Code · Fal.ai · OpenRouter · GPT Image 2</div>
+            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- CONTENT CLIPPING — full-width bottom row (border-bottom: none, now last) -->
+      <div class="work-card" style="cursor:default; overflow:visible; grid-column: 1 / -1; border-right: none; border-bottom: none;">
         <div class="flow-thumb flow-thumb--drop" style="min-height:320px; gap:1.25rem;">
           <div class="flow-badge">Live System</div>
           <div class="flow-nodes">
@@ -1497,70 +1615,6 @@
             <div class="work-title">Content Clipping Pipeline</div>
             <div class="work-result">Long-form to platform-ready clips — automated end to end</div>
             <div class="work-category">AssemblyAI · Claude API · Airtable · n8n</div>
-            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      <div class="work-card" style="cursor:default; border-right: 0.5px solid var(--border); border-bottom: none;">
-        <div class="flow-thumb">
-          <div class="flow-badge">Live System</div>
-          <div class="brand-deal-flow">
-            <div class="flow-nodes" id="brand-deal-nodes">
-              <span class="flow-node">Typeform</span>
-              <span class="flow-arr">→</span>
-              <span class="flow-node" id="bd-slack">Slack</span>
-              <span class="flow-arr">→</span>
-              <span class="flow-node">Airtable</span>
-              <span class="flow-arr">→</span>
-              <span class="flow-node" id="bd-workspace">Gmail</span>
-            </div>
-            <div class="flow-loop-row">
-              <div class="flow-loop-u" id="bd-loop"></div>
-            </div>
-          </div>
-        </div>
-        <div class="work-info work-info--demo">
-          <div class="work-meta">
-            <div class="work-title">Brand Deal Pipeline</div>
-            <div class="work-result">Inbound to proposal — automated end to end</div>
-            <div class="work-category">Typeform · Slack · Airtable · Gmail</div>
-            <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      <div class="work-card" style="cursor:default; overflow:visible; border-right: none; border-bottom: none;">
-        <div class="flow-thumb flow-thumb--drop">
-          <div class="flow-badge">Live System</div>
-          <div class="flow-nodes flow-nodes--ac">
-            <span class="flow-node">Claude Code</span>
-            <span class="flow-arr">→</span>
-            <span class="flow-expandable">
-              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'agents-list')">7 Agents <span class="flow-caret">▾</span></span>
-              <div class="agents-dropdown" id="agents-list">
-                <span class="agent-tag">Persona</span>
-                <span class="agent-tag">Angle</span>
-                <span class="agent-tag">Emotion</span>
-                <span class="agent-tag">Brand</span>
-                <span class="agent-tag">Conversion</span>
-                <span class="agent-tag">Format</span>
-                <span class="agent-tag">Grammar</span>
-              </div>
-            </span>
-            <span class="flow-arr">→</span>
-            <div class="flow-branch">
-              <span class="flow-node">Fal.ai</span>
-              <span class="branch-or">or</span>
-              <span class="flow-node">OpenRouter</span>
-            </div>
-            <span class="flow-arr">→</span>
-            <span class="flow-node">Creative</span>
-          </div>
-        </div>
-        <div class="work-info work-info--demo">
-          <div class="work-meta">
-            <div class="work-title">Ad Cloning &amp; Generation Pipeline</div>
-            <div class="work-result">10x creative output velocity</div>
-            <div class="work-category">Claude Code · Fal.ai · OpenRouter · GPT Image 2</div>
             <a href="https://calendar.app.google/Kzkmm1Hnjpt3JHNH9" target="_blank" class="demo-btn">Request a Demo</a>
           </div>
         </div>
