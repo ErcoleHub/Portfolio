@@ -1997,6 +1997,17 @@
       btn.querySelector('.flow-caret').textContent = list.classList.contains('open') ? '▴' : '▾';
     }
 
+    document.addEventListener('click', function(e) {
+      var dd = document.getElementById('casting-wf-dropdown');
+      if (!dd || !dd.classList.contains('open')) return;
+      var expandable = dd.closest('.flow-expandable');
+      if (!expandable.contains(e.target)) {
+        dd.classList.remove('open');
+        var caret = expandable.querySelector('.flow-caret');
+        if (caret) caret.textContent = '▾';
+      }
+    });
+
     // ─── BRAND DEAL LOOP ARROW ───
     function initBrandDealLoop() {
       const slack     = document.getElementById('bd-slack');
