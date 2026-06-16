@@ -1891,6 +1891,104 @@
 
     document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
 
+    // ─── CASTING OS WORKFLOW EXPANSION ───
+    const castingWfFlows = {
+      wf1: {
+        label: 'WF1 — AI Match & Show Fit Scoring',
+        nodes: [
+          { t: 'Airtable Trigger' }, { t: 'Should Process?' }, { t: 'Normalize Talent' },
+          { t: 'Fetch Active Shows' }, { t: 'Build Claude Prompt' }, { t: 'Claude API' },
+          { t: 'Parse Response' }, { t: 'Update Airtable' }, { t: 'Update Show Fit' }, { t: 'Notify Slack' }
+        ]
+      },
+      wf2: {
+        label: 'WF2 — Outreach Draft Generator',
+        nodes: [
+          { t: 'Airtable Trigger' }, { t: 'Status Changed?' }, { t: 'Get Talent Record' },
+          { t: 'Get Show Record' }, { t: 'Build Prompt' }, { t: 'Claude API' }, { t: 'Update Outreach Draft' }
+        ]
+      },
+      wf3: {
+        label: 'WF3 — Daily Follow-Up Reminder',
+        nodes: [
+          { t: 'Schedule 8AM' }, { t: 'Query Due Follow-Ups' }, { t: 'Normalize' },
+          { t: 'Any Results?' }, { t: 'Format Email' }, { t: 'Gmail Send' }
+        ]
+      },
+      wf4: {
+        label: 'WF4 — Weekly Pipeline Report',
+        nodes: [
+          { t: 'Schedule Mon 9AM' }, { t: 'Query All Outreach' }, { t: 'Normalize' },
+          { t: 'Build Report' }, { t: 'Gmail Send' }, { t: 'Format Slack' }, { t: 'Notify Slack' }
+        ]
+      },
+      wf5: {
+        label: 'WF5 — Talent Self-Submission Intake',
+        nodes: [
+          { t: 'Submission Form' }, { t: 'Validate Fields' }, { t: 'Check Headshot?' },
+          { t: 'Upload → Drive' }, { t: 'Build URL' }, { t: 'Create Airtable Record' },
+          { t: 'Confirmation Email' }, { t: 'Trigger AI Enrichment' }, { t: 'Has YouTube?' }, { t: 'Trigger YouTube WF' }
+        ]
+      },
+      wf6: {
+        label: 'WF6 — YouTube Channel Auto-Enrichment',
+        nodes: [
+          { t: 'Webhook' }, { t: 'Has YouTube URL?' }, { t: 'Extract Handle' },
+          { t: 'YouTube Data API' },
+          { t: 'Parse Channel Stats', tags: ['Subscribers','Total Views','Video Count','Avg Views/Video','Channel Bio','Country','Last Upload Date'] },
+          { t: 'Update Airtable' }
+        ]
+      },
+      wf7: {
+        label: 'WF7 — Show Research Auto-Enrichment',
+        nodes: [
+          { t: 'Airtable Trigger' }, { t: 'Normalize Show' }, { t: 'Description Empty?' },
+          { t: 'Build Perplexity Prompt' }, { t: 'Perplexity API' }, { t: 'Parse Response' }, { t: 'Update Show Record' }
+        ]
+      },
+      wf8: {
+        label: 'WF8 — Phyllo / InsightIQ Profile Enrichment',
+        nodes: [
+          { t: 'Schedule Trigger' }, { t: 'Find Pending Lookups' }, { t: 'Any Pending?' },
+          { t: 'Build Job List' }, { t: 'InsightIQ API' },
+          { t: 'Aggregate Results', tags: ['— TikTok —','Followers','Total Likes','Video Count','Avg Views/Video','Engagement Rate','— Instagram —','Followers','Post Count','Avg Likes/Post','Engagement Rate','Bio'] },
+          { t: 'Update Airtable' }, { t: 'Notify Slack' }
+        ]
+      }
+    };
+    let castingActiveWf = null;
+    function showWfFlow(id, tagEl) {
+      const expansion = document.getElementById('casting-wf-expansion');
+      const labelEl   = document.getElementById('casting-wf-label');
+      const nodesEl   = document.getElementById('casting-wf-nodes');
+      document.querySelectorAll('#casting-wf-dropdown .agent-tag').forEach(t => t.style.color = '');
+      if (castingActiveWf === id) {
+        castingActiveWf = null;
+        expansion.style.display = 'none';
+        return;
+      }
+      castingActiveWf = id;
+      tagEl.style.color = 'var(--gold)';
+      const wf = castingWfFlows[id];
+      labelEl.textContent = wf.label;
+      nodesEl.innerHTML = wf.nodes.map(function(n, i) {
+        var arr = i < wf.nodes.length - 1 ? '<span class="flow-arr">→</span>' : '';
+        if (n.tags) {
+          var tagRows = n.tags.map(function(tag) {
+            return tag.startsWith('—')
+              ? '<span style="font-family:var(--inter);font-size:0.42rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,215,0,0.7);padding-top:0.25rem;border-top:0.5px solid rgba(255,215,0,0.15);margin-top:0.15rem;display:block;">' + tag + '</span>'
+              : '<span class="agent-tag" style="cursor:default;">' + tag + '</span>';
+          }).join('');
+          return '<span class="flow-expandable" style="flex-direction:column;align-items:center;gap:0.3rem;">'
+            + '<span class="flow-node" style="font-size:0.48rem;padding:0.3rem 0.65rem;border-color:rgba(0,229,204,0.4);color:var(--cyan);">' + n.t + '</span>'
+            + '<div style="display:flex;flex-direction:column;gap:0.2rem;background:#111;border:0.5px solid rgba(0,229,204,0.2);padding:0.4rem 0.65rem;min-width:130px;">' + tagRows + '</div>'
+            + '</span>' + arr;
+        }
+        return '<span class="flow-node" style="font-size:0.48rem;padding:0.3rem 0.65rem;">' + n.t + '</span>' + arr;
+      }).join('');
+      expansion.style.display = 'flex';
+    }
+
     // ─── AGENTS EXPAND ───
     function toggleDropdown(btn, id) {
       const list = document.getElementById(id);
