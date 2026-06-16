@@ -1970,6 +1970,7 @@
       castingActiveWf = id;
       tagEl.style.color = 'var(--gold)';
       const wf = castingWfFlows[id];
+      if (!wf) return;
       labelEl.textContent = wf.label;
       nodesEl.innerHTML = wf.nodes.map(function(n, i) {
         var arr = i < wf.nodes.length - 1 ? '<span class="flow-arr">→</span>' : '';
