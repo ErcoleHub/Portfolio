@@ -1043,16 +1043,29 @@
     .form-submit:active { transform: scale(0.98); }
 
     .form-success {
-      font-family: var(--bebas);
-      font-size: 2.4rem;
-      letter-spacing: 0.04em;
-      line-height: 1;
-      color: var(--gold);
-      padding: 1.2rem 0 0.4rem;
+      padding: 2rem 0 0.4rem;
       display: none;
     }
 
     .form-success.visible { display: block; }
+
+    .form-success-headline {
+      font-family: var(--bebas);
+      font-size: 3.6rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: #ff6a00;
+    }
+
+    .form-success-sub {
+      font-family: var(--bebas);
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: #ff6a00;
+      opacity: 0.75;
+      margin-top: 0.5rem;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -1644,8 +1657,11 @@
             <textarea id="message" name="message" placeholder="Tell me about what you're building…"></textarea>
           </div>
           <button type="submit" class="form-submit">Send It →</button>
-          <div class="form-success" id="form-success">Be in touch soon!</div>
         </form>
+        <div class="form-success" id="form-success">
+          <div class="form-success-headline">Message received.</div>
+          <div class="form-success-sub">I'll be in touch soon.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1728,7 +1744,7 @@
         });
         const data = await response.json();
 
-        if (response.ok && data.success) {
+        if (response.ok) {
           form.style.display = 'none';
           document.getElementById('form-success').classList.add('visible');
         } else {
