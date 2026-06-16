@@ -1469,7 +1469,7 @@
             <span class="flow-node">Intake Form</span>
             <span class="flow-arr">→</span>
             <span class="flow-expandable">
-              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'casting-wf-dropdown')">8 Workflows <span class="flow-caret">▾</span></span>
+              <span class="flow-node flow-node--btn" onclick="toggleDropdown(this, 'casting-wf-dropdown'); event.stopPropagation();">8 Workflows <span class="flow-caret">▾</span></span>
               <div class="agents-dropdown" id="casting-wf-dropdown">
                 <span class="agent-tag" onclick="showWfFlow('wf5', this)">WF5 — Talent Intake</span>
                 <span class="agent-tag" onclick="showWfFlow('wf1', this)">WF1 — AI Match &amp; Show Fit</span>
@@ -2000,11 +2000,10 @@
     document.addEventListener('click', function(e) {
       var dd = document.getElementById('casting-wf-dropdown');
       if (!dd || !dd.classList.contains('open')) return;
-      var expandable = dd.closest('.flow-expandable');
-      if (!expandable.contains(e.target)) {
+      if (!dd.contains(e.target)) {
         dd.classList.remove('open');
-        var caret = expandable.querySelector('.flow-caret');
-        if (caret) caret.textContent = '▾';
+        var btn = dd.previousElementSibling;
+        if (btn) { var caret = btn.querySelector('.flow-caret'); if (caret) caret.textContent = '▾'; }
       }
     });
 
