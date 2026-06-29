@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are AI Agents Actually Going to Kill SaaS? — Justin Ercole</title>
+<meta name="description" content="Everyone's saying AI agents will replace SaaS by 2028. After a week digging in, here's what I actually think happens.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --teal:#00C4B3; --black:#0A0A0A; --panel:#121212; --text:#EDEDED; --muted:#8A8A8A;
+  --rule:#2A2A2A; --teal-dim:rgba(0,196,179,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--text);line-height:1.75;font-size:17px}
+.wrap{max-width:720px;margin:0 auto;padding:0 26px 100px}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;
+  font-family:'JetBrains Mono','Courier New',monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);padding:18px 0;border-bottom:1px solid var(--rule)}
+.topbar a{text-decoration:none;color:var(--muted);transition:color .2s}
+.topbar .brand{color:#fff}
+.topbar .brand b{color:var(--teal)}
+.topbar .back:hover{color:var(--teal)}
+
+article{padding-top:56px}
+.eyebrow{font-family:'JetBrains Mono','Courier New',monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:58px;line-height:.98;letter-spacing:.01em;
+  text-transform:uppercase;color:#fff;margin-bottom:22px}
+.byline{display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono','Courier New',monospace;
+  font-size:12px;color:var(--muted);padding-bottom:30px;margin-bottom:38px;border-bottom:1px solid var(--rule)}
+.byline .dot{color:var(--teal)}
+
+article p{margin-bottom:24px;color:#DADADA}
+article p.lede{font-size:21px;line-height:1.65;color:#fff}
+article h2{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.03em;text-transform:uppercase;
+  color:#fff;margin:48px 0 16px}
+article h3{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--teal);margin:36px 0 12px}
+article strong{color:#fff}
+article a{color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-dim)}
+article blockquote{border-left:3px solid var(--teal);padding:6px 0 6px 22px;margin:30px 0;
+  font-size:22px;line-height:1.4;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:.02em}
+
+.pullbar{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--teal);
+  border-radius:0 8px 8px 0;padding:22px 26px;margin:34px 0}
+.pullbar h3{margin-top:0}
+.takeaways{list-style:none;padding:0}
+.takeaways li{padding:12px 0 12px 32px;border-bottom:1px solid var(--rule);position:relative;color:#DADADA}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:"→";position:absolute;left:0;color:var(--teal);font-family:'JetBrains Mono','Courier New',monospace}
+
+.sources{margin-top:20px;list-style:none;padding:0}
+.sources li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--muted)}
+.sources a{color:var(--teal);border:none}
+
+.signoff{margin-top:54px;padding-top:30px;border-top:1px solid var(--rule)}
+.signoff p{font-style:italic;color:#DADADA}
+.cta{display:inline-block;margin-top:18px;font-family:'JetBrains Mono','Courier New',monospace;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--black);background:var(--teal);
+  padding:12px 22px;border-radius:5px;text-decoration:none}
+
+footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;font-family:'JetBrains Mono','Courier New',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="../index.html" class="brand">ERCOLE<b>▮</b> AUTOMATIONS</a>
+    <a href="../index.html#thoughts" class="back">← All Thoughts</a>
+  </div>
+
+  <article>
+    <div class="eyebrow">AI Systems · Build vs Buy</div>
+    <h1>Are AI Agents Actually Going to Kill SaaS?</h1>
+    <div class="byline">
+      <span>Justin Ercole</span><span class="dot">●</span>
+      <span>June 29, 2026</span><span class="dot">●</span>
+      <span>4 min read</span>
+    </div>
+
+    <p class="lede">Everyone keeps telling me agents are about to wipe out SaaS by 2028. I spent a week digging into it. The headline is wrong, but what's underneath is more interesting than the hype.</p>
+
+    <p>Here is the short version. Agents are already making it stupid cheap to build small internal tools. That part is real and it is happening now. What they are not doing is replacing the systems your business actually runs on. The data still lives somewhere, and whoever owns that data is in a stronger position than ever.</p>
+
+    <h2>What I found</h2>
+
+    <h3>Switching costs are the real moat, not the software</h3>
+    <p>I kept looking for the case where a company rips out its core platform and rebuilds it with agents. I could not find it at any real scale. Once your customer records, your billing, and your history live inside a system, the cost of leaving has almost nothing to do with how good the new tool is. That ceiling holds no matter how capable the agents get.</p>
+
+    <h3>"Replacement" is really just the interface coming unbundled</h3>
+    <p>What agents are good at is generating the screen you need in the moment. The button, the dashboard, the quick view. That is the interface layer. The system of record underneath, where the data actually sits, is not going anywhere. So when people say SaaS is dying, what they usually mean is the front end is getting cheaper. Not the same thing.</p>
+
+    <h3>The incumbents are moving faster than the startups</h3>
+    <p>This one surprised me. The big platforms are bolting agents onto what they already own quicker than new players can rebuild the data layer from scratch. They have the customers, the data, and the distribution. A startup with a better agent still has to win all three of those before any of it matters.</p>
+
+    <h3>Generation was never the bottleneck. Trust is</h3>
+    <p>Spinning up a tool is the easy 20 percent. Keeping it reliable, safe to run against real data, and trusted enough that someone bets their workflow on it is the hard 80. That is where adoption actually stalls, and it is the part the demos never show you.</p>
+
+    <h2>The thread that connects it</h2>
+    <blockquote>It was never about the model. It was always about who owns the data.</blockquote>
+    <p>Every angle I looked at came back to the same place. The moat is not model quality, and it is not who has the slickest agent. It is data gravity. Agents do not move that power away from the incumbents. If anything they hand them more of it, because the value shifts to whoever the data already trusts.</p>
+
+    <div class="pullbar">
+      <h3>What I'd actually do</h3>
+      <ul class="takeaways">
+        <li>Build agents for the long-tail internal tools nobody has a system for yet. That is where they win first, and it is the cheapest place to start.</li>
+        <li>If you run a brand, treat agents as a layer on top of the tools you already use. Do not rip anything out.</li>
+        <li>Judge any agent build on whether you trust it to run unattended, not on how fast it spits out a draft.</li>
+        <li>Watch what the big platforms ship. That is your clock. Build in the gaps they are slow to fill.</li>
+      </ul>
+    </div>
+
+    <h2>What I'm still watching</h2>
+    <p>The thing nobody has priced in yet is what happens when agents start touching production data at scale and the compliance world wakes up. The moment security and regulation enter the picture, the timeline stretches and the companies with the cleanest audit trail win by default. That is the question I cannot stop thinking about: who captures the value when the screen is generated on demand but the data still lives in someone else's vault?</p>
+
+    <h3>Sources</h3>
+    <ul class="sources">
+      <li><a href="https://a16z.com/ai-agents/" target="_blank" rel="noopener noreferrer">a16z — The Economics of AI Agents (2025)</a> — market and unit-economics breakdown</li>
+      <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener noreferrer">Stanford HAI — AI Index 2025</a> — enterprise adoption data</li>
+    </ul>
+
+    <div class="signoff">
+      <p>I build these systems for a living, so I have a bias toward "it is more nuanced than the headline." But the data kept agreeing with me, so I will take it. If you are making a build versus buy call right now and want a second set of eyes, my inbox is open. Talk soon.</p>
+      <a class="cta" href="../index.html#contact">Work with me →</a>
+    </div>
+  </article>
+
+  <footer>
+    <span>ERCOLE AUTOMATIONS · AI SYSTEMS ENGINEER · LOS ANGELES</span>
+    <span>justin@ercoleautomations.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
