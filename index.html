@@ -378,8 +378,8 @@
     #thoughts { background: var(--bg); border-top: 0.5px solid var(--border); }
 
     .thoughts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: column;
       border: 0.5px solid var(--border);
     }
 
@@ -387,15 +387,12 @@
       display: flex;
       flex-direction: column;
       padding: 2rem 1.75rem;
-      border-right: 0.5px solid var(--border);
       border-bottom: 0.5px solid var(--border);
       text-decoration: none;
       color: var(--text);
       transition: background 0.2s;
     }
 
-    .thought-card:nth-child(2n) { border-right: none; }
-    .thought-card:nth-last-child(-n+2):nth-child(odd),
     .thought-card:last-child { border-bottom: none; }
     .thought-card:hover { background: var(--card-hover); }
 
@@ -1338,8 +1335,6 @@
       .work-grid { grid-template-columns: 1fr; }
       .work-card:nth-child(n) { border-right: none; border-bottom: 0.5px solid var(--border); }
       .work-card:last-child { border-bottom: none; }
-      .thoughts-grid { grid-template-columns: 1fr; }
-      .thought-card:nth-child(n) { border-right: none; border-bottom: 0.5px solid var(--border); }
       .thought-card:last-child { border-bottom: none; }
       .systems-intro { grid-template-columns: 1fr; gap: 2.5rem; }
       .systems-grid { grid-auto-columns: 82%; }
