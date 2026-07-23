@@ -105,7 +105,7 @@
     .nav-links a:hover { color: var(--text); }
 
     /* Services dropdown */
-    .nav-dropdown { position: relative; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
     .nav-dropdown-toggle { display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; }
     .nav-dropdown .caret { font-size: 0.85em; transition: transform 0.2s; }
     .nav-dropdown:hover .caret { transform: rotate(180deg); }
@@ -1309,7 +1309,7 @@
         padding: 1.5rem;
       }
       .nav-links.open { display: flex; }
-      .nav-dropdown { width: 100%; }
+      .nav-dropdown { width: 100%; display: block; }
       .nav-dropdown::before { display: none; }
       .nav-dropdown .caret { display: none; }
       .nav-dropdown-menu {

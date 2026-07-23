@@ -1,8 +1,14 @@
 # Website Deploy Workflow
 
 ## Overview
-Static portfolio site (`index.html`) → GitHub (`ErcoleHub/Portfolio`) → Vercel auto-deploy.
+Static portfolio site (`index.html`) → GitHub (`ErcoleHub/Portfolio`) → Vercel auto-deploy → live at **www.ercoleautomations.com**.
 Every push to `main` triggers a live deploy in ~30 seconds.
+
+## Domains (verified 2026-07-23)
+- **Primary domain: `www.ercoleautomations.com`** — the canonical Production domain, served by **Vercel** from this repo. Apex `ercoleautomations.com` 308-redirects to it.
+- **`justinercole.com` and `www.justinercole.com` now 307-redirect to `www.ercoleautomations.com`** (path preserved). Both are Vercel domains on this same project; they no longer serve content directly.
+- GoDaddy `ercoleautomations.com` forwarding is OFF; DNS points at Vercel (A `@` → 216.198.79.1, CNAME `www` → `4d84ea7390e1fe85.vercel-dns-017.com`). All Microsoft 365 email records (MX, autodiscover, DKIM, DMARC, SRV) were left untouched.
+- SourceSifterr is live at `ercoleautomations.com/sourcesifterr` (landing, `/walkthrough`, `/privacy`, `/terms`), migrated 2026-07-23. Still reachable via the justinercole.com redirect.
 
 ## Ongoing Editing Workflow
 
