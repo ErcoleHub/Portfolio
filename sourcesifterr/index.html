@@ -93,8 +93,11 @@
     [style*="width: 397px"], [style*="width: 392px"], [style*="width: 372px"], [style*="width: 420px"], [style*="width: 360px"] { max-width: 100% !important; }
     /* Comparison card: reduce heavy side padding AND match both halves so old/new headers left-align */
     [style*="padding:52px 62px 52px 48px"], [style*="padding:52px 48px 52px 62px"] { padding: 30px 18px !important; }
-    /* Step-3 "two deliverables" animation: scale the fixed composition down so the floating card fits on screen */
-    [style*="border-left: 1px solid #EDECF3; padding: 32px"] { transform: scale(0.76) !important; }
+    /* Step-3 "two deliverables" animation: cut padding + scale to fit, undo the left:87px shove, and keep the deck slides side-by-side (they were collapsed by the global grid rule) */
+    [style*="border-left: 1px solid #EDECF3; padding: 32px"] { padding: 4px !important; transform: scale(0.84) !important; }
+    [style*="border-left: 1px solid #EDECF3; padding: 32px"] [style*="left: 87px"] { left: 0 !important; }
+    [style*="border-left: 1px solid #EDECF3; padding: 32px"] [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
+    [style*="border-left: 1px solid #EDECF3; padding: 32px"] [style*="grid-template-columns:1fr 1fr"]:has(> :nth-child(3)) { grid-template-columns: repeat(3, 1fr) !important; }
     /* Stats row: keep hours / products / on-budget on one line */
     [style*="gap:30px;flex-wrap:wrap"] { flex-wrap: nowrap !important; gap: 8px !important; }
     /* Tighten section side padding on phones */
