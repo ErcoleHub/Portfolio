@@ -77,17 +77,22 @@
     [style*="grid-template-columns:1fr 1fr 1fr;"],
     [style*="minmax(0,1fr) minmax(0,1.05fr)"],
     [style*="minmax(0,0.95fr) minmax(0,1.05fr)"],
-    [style*="max-width:1200px"][style*="display:grid"] { grid-template-columns: 1fr !important; }
+    [style*="max-width:1200px"][style*="display:grid"] { grid-template-columns: minmax(0, 1fr) !important; }
     /* Comparison card: hide the side-by-side vertical divider + center badge when stacked */
     [style*="height:116%"][style*="width:2px"],
     [style*="left:50%;top:50%;transform:translate(-50%,-50%);z-index:3"] { display: none !important; }
     /* Let the wide spreadsheet mockup shrink to fit instead of clipping */
     [style*="min-width:720px"] { min-width: 0 !important; }
+    /* ...but keep the #builds Sourcing Tracker at full width so it scrolls horizontally (swipe) rather than cramming its columns */
+    #builds [style*="min-width:720px"] { min-width: 720px !important; }
+    [style*="overflow-x:auto"] { -webkit-overflow-scrolling: touch !important; }
     /* Override the export's hard-coded pixel section dimensions so sections size to content (fixes the right-edge cut-off AND the section-to-section overlap) */
     [style*="width: 1199px"], [style*="width: 1220px"] { width: auto !important; }
     [style*="height: 1243px"], [style*="height: 1775px"] { height: auto !important; }
     /* Fixed-width graphic blocks never exceed the viewport */
-    [style*="width: 397px"], [style*="width: 392px"], [style*="width: 372px"] { max-width: 100% !important; }
+    [style*="width: 397px"], [style*="width: 392px"], [style*="width: 372px"], [style*="width: 420px"], [style*="width: 360px"] { max-width: 100% !important; }
+    /* Comparison card: reduce the heavy side padding so the spreadsheet tucks left and isn't clipped */
+    [style*="padding:52px 62px 52px 48px"] { padding: 30px 18px !important; }
     /* Tighten section side padding on phones */
     [style*="max-width:1200px"] { padding-left: 20px !important; padding-right: 20px !important; }
     #top { padding-top: 40px !important; padding-bottom: 36px !important; }
