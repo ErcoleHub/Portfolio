@@ -4,6 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SourceSifterr</title>
+<link rel="canonical" href="https://www.ercoleautomations.com/sourcesifterr/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SourceSifterr" />
+<meta property="og:description" content="One click and the whole sourcing grind disappears. SourceSifterr grabs the product name, size, price and a clean cut-out image from any site straight into a budget-tracked Google Sheet, then publishes a sourcing deck on demand." />
+<meta property="og:url" content="https://www.ercoleautomations.com/sourcesifterr/" />
+<meta property="og:image" content="https://www.ercoleautomations.com/sourcesifterr/og-sourcesifterr.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="SourceSifterr" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SourceSifterr" />
+<meta name="twitter:description" content="One click and the whole sourcing grind disappears. Capture any product into a budget-tracked Google Sheet and a live sourcing deck." />
+<meta name="twitter:image" content="https://www.ercoleautomations.com/sourcesifterr/og-sourcesifterr.png" />
 
 
 
@@ -70,6 +83,11 @@
     [style*="left:50%;top:50%;transform:translate(-50%,-50%);z-index:3"] { display: none !important; }
     /* Let the wide spreadsheet mockup shrink to fit instead of clipping */
     [style*="min-width:720px"] { min-width: 0 !important; }
+    /* Override the export's hard-coded pixel section dimensions so sections size to content (fixes the right-edge cut-off AND the section-to-section overlap) */
+    [style*="width: 1199px"], [style*="width: 1220px"] { width: auto !important; }
+    [style*="height: 1243px"], [style*="height: 1775px"] { height: auto !important; }
+    /* Fixed-width graphic blocks never exceed the viewport */
+    [style*="width: 397px"], [style*="width: 392px"], [style*="width: 372px"] { max-width: 100% !important; }
     /* Tighten section side padding on phones */
     [style*="max-width:1200px"] { padding-left: 20px !important; padding-right: 20px !important; }
     #top { padding-top: 40px !important; padding-bottom: 36px !important; }
