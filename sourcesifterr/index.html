@@ -59,13 +59,17 @@
   @media (max-width: 768px) {
     /* Nav: let links wrap under the logo, keep the CTA visible, auto height */
     nav > div[style*="max-width:1200px"] { flex-wrap: wrap !important; height: auto !important; padding: 12px 20px !important; gap: 10px 16px !important; }
-    /* Section-level two-column layouts collapse to a single column */
+    /* Collapse ALL multi-column section/card grids to a single column */
+    [style*="grid-template-columns:1fr 1fr;"],
+    [style*="grid-template-columns:1fr 1fr 1fr;"],
     [style*="minmax(0,1fr) minmax(0,1.05fr)"],
     [style*="minmax(0,0.95fr) minmax(0,1.05fr)"],
-    [style*="max-width:1200px"][style*="display:grid"],
-    [style*="max-width:1200px"] > [style*="grid-template-columns:1fr 1fr;"] { grid-template-columns: 1fr !important; }
-    /* Three-column feature rows collapse to a single column */
-    [style*="grid-template-columns:1fr 1fr 1fr;"] { grid-template-columns: 1fr !important; }
+    [style*="max-width:1200px"][style*="display:grid"] { grid-template-columns: 1fr !important; }
+    /* Comparison card: hide the side-by-side vertical divider + center badge when stacked */
+    [style*="height:116%"][style*="width:2px"],
+    [style*="left:50%;top:50%;transform:translate(-50%,-50%);z-index:3"] { display: none !important; }
+    /* Let the wide spreadsheet mockup shrink to fit instead of clipping */
+    [style*="min-width:720px"] { min-width: 0 !important; }
     /* Tighten section side padding on phones */
     [style*="max-width:1200px"] { padding-left: 20px !important; padding-right: 20px !important; }
     #top { padding-top: 40px !important; padding-bottom: 36px !important; }
