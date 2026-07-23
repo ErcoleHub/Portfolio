@@ -2,7 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SourceSifterr — Walkthrough</title>
+  <style>
+    /* ===== Mobile responsive (added 2026-07-23) — phone-only overrides, desktop layout unchanged ===== */
+    @media (max-width: 768px) {
+      /* Nav and footer bars wrap on phones */
+      [style*="max-width:1200px"][style*="display:flex"] { flex-wrap: wrap !important; height: auto !important; padding: 14px 20px !important; gap: 10px 16px !important; }
+      /* Tighten the content column padding */
+      [style*="max-width:1000px"] { padding: 32px 20px 56px !important; }
+      /* Injected YouTube iframe fills its 16:9 box */
+      [data-vwrap] iframe { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }
+      /* Scale the headline down for phones */
+      [style*="clamp(2.2rem,4vw,3.1rem)"] { font-size: clamp(1.7rem, 7.5vw, 2.4rem) !important; }
+      /* Media never overflows the viewport */
+      img, video, iframe { max-width: 100% !important; }
+    }
+  </style>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #0E0E12; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
