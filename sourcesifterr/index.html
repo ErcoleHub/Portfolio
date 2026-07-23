@@ -91,8 +91,12 @@
     [style*="height: 1243px"], [style*="height: 1775px"] { height: auto !important; }
     /* Fixed-width graphic blocks never exceed the viewport */
     [style*="width: 397px"], [style*="width: 392px"], [style*="width: 372px"], [style*="width: 420px"], [style*="width: 360px"] { max-width: 100% !important; }
-    /* Comparison card: reduce the heavy side padding so the spreadsheet tucks left and isn't clipped */
-    [style*="padding:52px 62px 52px 48px"] { padding: 30px 18px !important; }
+    /* Comparison card: reduce heavy side padding AND match both halves so old/new headers left-align */
+    [style*="padding:52px 62px 52px 48px"], [style*="padding:52px 48px 52px 62px"] { padding: 30px 18px !important; }
+    /* Step-3 "two deliverables" animation: scale the fixed composition down so the floating card fits on screen */
+    [style*="border-left: 1px solid #EDECF3; padding: 32px"] { transform: scale(0.76) !important; }
+    /* Stats row: keep hours / products / on-budget on one line */
+    [style*="gap:30px;flex-wrap:wrap"] { flex-wrap: nowrap !important; gap: 8px !important; }
     /* Tighten section side padding on phones */
     [style*="max-width:1200px"] { padding-left: 20px !important; padding-right: 20px !important; }
     #top { padding-top: 40px !important; padding-bottom: 36px !important; }
