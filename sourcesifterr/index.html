@@ -77,8 +77,8 @@
     [style*="clamp(1.9rem,3vw,2.6rem)"] { font-size: clamp(1.55rem, 6.5vw, 2.05rem) !important; }
     [style*="font-size:3.4rem"] { font-size: 2rem !important; }
     [style*="font-size:2.6rem"] { font-size: 1.7rem !important; }
-    /* Media never overflows the viewport */
-    img, video, iframe { max-width: 100% !important; height: auto !important; }
+    /* Media never overflows the viewport — but skip absolutely-positioned crop media (object-fit / transform framing) so their framing is preserved */
+    img:not([style*="position:absolute"]), video:not([style*="position:absolute"]), iframe { max-width: 100% !important; height: auto !important; }
   }
 </style>
 
