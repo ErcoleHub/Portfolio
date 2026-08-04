@@ -532,18 +532,48 @@
 
     .view-all:hover { color: var(--gold); border-color: var(--gold); }
 
+    /* Horizontal scroller, mirroring the .systems-grid pattern in section 01 */
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: column;
+      grid-auto-columns: calc(100% / 3);
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
       border: 0.5px solid var(--border);
+      border-bottom: none;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+      /* overflow-x:auto stops overflow-y being visible, so anything escaping a
+         card would be clipped. Measured: the dropdowns open well inside the
+         card row at every viewport, so no extra reserve is needed. If a longer
+         dropdown is ever added, reserve room with padding-bottom plus an equal
+         negative margin-bottom rather than letting it clip. */
     }
+
+    .work-grid::-webkit-scrollbar { height: 6px; }
+    .work-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .work-grid::-webkit-scrollbar-track { background: transparent; }
 
     .work-card {
       border-right: 0.5px solid var(--border);
       border-bottom: 0.5px solid var(--border);
       cursor: pointer;
       transition: background 0.2s;
-      overflow: hidden;
+      overflow: visible;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Stretched link: the button is a real anchor, and its ::after covers the
+       whole card so the entire card is clickable. Avoids nesting a link inside
+       a link, and keeps right-click and open-in-new-tab working on the button. */
+    .demo-btn--stretch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
 
     .work-card:hover { background: var(--card-hover); }
@@ -619,7 +649,10 @@
 
     /* ─── DEMO CARDS ─── */
     .flow-thumb {
-      height: 260px;
+      /* min-height, not height: in a narrow card the expansion panel wraps to
+         several rows, and a fixed height made it spill over the card title. */
+      min-height: 300px;
+      flex-shrink: 0;
       background: #0d0d0d;
       display: flex;
       flex-direction: column;
@@ -651,6 +684,22 @@
       background: var(--cyan);
       opacity: 0.5;
     }
+    /* Solid chip for a purchasable product. Deliberately louder than
+       .flow-badge, which is a hairline label and reads as a whisper. */
+    .badge-pill {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      z-index: 2;
+      font-family: var(--inter);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 0.4rem 0.8rem;
+    }
     .flow-nodes {
       display: flex;
       align-items: center;
@@ -658,6 +707,10 @@
       flex-wrap: wrap;
       justify-content: center;
       padding: 0 1.5rem;
+      /* The parent centres its children, which sizes this to max-content and
+         leaves flex-wrap with nothing to wrap against. Constraining the width
+         is what actually lets long chains wrap inside a narrow card. */
+      width: 100%;
     }
     .flow-node {
       font-family: var(--inter);
@@ -1332,9 +1385,7 @@
       .service-card:nth-child(3n) { border-right: 0.5px solid var(--border); }
       .service-card:nth-child(2n) { border-right: none; }
       .service-card:nth-child(n+5) { border-bottom: none; }
-      .work-grid { grid-template-columns: 1fr; }
-      .work-card:nth-child(n) { border-right: none; border-bottom: 0.5px solid var(--border); }
-      .work-card:last-child { border-bottom: none; }
+      .work-grid { grid-auto-columns: 82%; }
       .thought-card:last-child { border-bottom: none; }
       .systems-intro { grid-template-columns: 1fr; gap: 2.5rem; }
       .systems-grid { grid-auto-columns: 82%; }
@@ -1595,9 +1646,24 @@
       <a href="#" class="view-all">View All Work →</a>
     </div>
     <div class="work-grid">
+      <!-- SOURCESIFTERR — full-width top row. Shipped product, and the only card in the grid that links out. -->
+      <div class="work-card" style="cursor:pointer;">
+        <div class="flow-thumb" style="background:#F6F4EF; padding:2rem;">
+          <div class="badge-pill">Available Now</div>
+          <img src="uploads/sourcesifterr-logo.png" alt="SourceSifterr" style="width:100%; max-width:290px; height:auto; object-fit:contain;">
+        </div>
+        <div class="work-info work-info--demo">
+          <div class="work-meta">
+            <div class="work-title">SourceSifterr</div>
+            <div class="work-result">Sourcing admin eliminated for interior designers, set designers, and project managers</div>
+            <div class="work-category">Chrome Extension · Claude API · Google Sheets · Google Slides</div>
+            <a href="sourcesifterr/index.html" class="demo-btn demo-btn--stretch">Learn More</a>
+          </div>
+        </div>
+      </div>
       <!-- CASTING OS — full-width top row -->
-      <div class="work-card" style="cursor:default; overflow:visible; grid-column: 1 / -1; border-right: none; border-bottom: 0.5px solid var(--border);">
-        <div class="flow-thumb flow-thumb--drop" style="min-height:320px; gap:1.25rem;">
+      <div class="work-card" style="cursor:default;">
+        <div class="flow-thumb flow-thumb--drop">
           <div class="flow-badge">Live System</div>
           <div class="flow-nodes">
             <span class="flow-node">Intake Form</span>
@@ -1647,7 +1713,7 @@
         </div>
       </div>
       <!-- BRAND DEAL — left half, middle row (border-bottom added) -->
-      <div class="work-card" style="cursor:default; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);">
+      <div class="work-card" style="cursor:default;">
         <div class="flow-thumb">
           <div class="flow-badge">Live System</div>
           <div class="brand-deal-flow">
@@ -1675,7 +1741,7 @@
         </div>
       </div>
       <!-- AD CLONING — right half, middle row (border-bottom added) -->
-      <div class="work-card" style="cursor:default; overflow:visible; border-right: none; border-bottom: 0.5px solid var(--border);">
+      <div class="work-card" style="cursor:default;">
         <div class="flow-thumb flow-thumb--drop">
           <div class="flow-badge">Live System</div>
           <div class="flow-nodes flow-nodes--ac">
@@ -1713,8 +1779,8 @@
         </div>
       </div>
       <!-- CONTENT CLIPPING — full-width bottom row (border-bottom: none, now last) -->
-      <div class="work-card" style="cursor:default; overflow:visible; grid-column: 1 / -1; border-right: none; border-bottom: none;">
-        <div class="flow-thumb flow-thumb--drop" style="min-height:320px; gap:1.25rem;">
+      <div class="work-card" style="cursor:default;">
+        <div class="flow-thumb flow-thumb--drop">
           <div class="flow-badge">Live System</div>
           <div class="flow-nodes">
             <span class="flow-node">Google Drive</span>
